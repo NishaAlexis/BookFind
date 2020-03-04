@@ -1,0 +1,25 @@
+{
+  "name": "bookfind",
+  "version": "1.0.0",
+  "description": "Hybrid Book Recommendation System \r using TF-IDF and Cosine Similarity",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NishaAlexis/BookFind.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NishaAlexis/BookFind/issues"
+  },
+  "homepage": "https://github.com/NishaAlexis/BookFind#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
