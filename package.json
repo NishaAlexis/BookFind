@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NishaAlexis/BookFind.git"
+    "url": "git+https://github.com/NishaAlexis/BookFind"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NishaAlexis/BookFind/issues"
   },
-  "homepage": "https://github.com/NishaAlexis/BookFind#readme",
+  "homepage": "https://github.com/NishaAlexis/BookFind",
   "dependencies": {
     "express": "^4.17.1"
   }
