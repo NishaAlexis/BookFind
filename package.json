@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,12 @@
   },
   "homepage": "https://github.com/NishaAlexis/BookFind",
   "dependencies": {
-    "express": "^4.17.1"
+    "chai": "^4.2.0",
+    "content-based-recommender": "^1.4.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
