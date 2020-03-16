@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function(){
-  console.log("Listening on port 3000!")
+  console.log("Listening on port 3000...")
 });
 
 const ContentBasedRecommender = require("content-based-recommender");
@@ -45,13 +45,23 @@ const documents = [
   { id: '1000022', content: 'Classics|Plays|Fiction|Romance|Academic|School|Drama|Academic|Read For School|Literature|Young Adult|High School|Poetry' },
   { id: '1000023', content: 'Classics|Fiction|Young Adult|Academic|School|Literature' },
   { id: '1000024', content: 'Fiction|Classics|Fantasy|Philosophy|Novels|Spirituality|Literature|Inspirational|Adventure|Self Help' },
-  { id: '1000025', content: 'Classics|Fiction|Cultural|Russia|Literature|Literature|Russian Literature' }
+  { id: '1000025', content: 'Classics|Fiction|Cultural|Russia|Literature|Literature|Russian Literature' },
 ];
 
 // start training
 recommender.train(documents);
 
 //get top 10 similar items to document 1000002
-const similarDocuments = recommender.getSimilarDocuments('1000002', 0, 25);
+const similarDocuments = recommender.getSimilarDocuments('1000001', 0, 26);
 
 console.log(similarDocuments);
+
+// const fs = require('fs');
+// const fileContents = fs.readFileSync('dataset.json', 'utf8');
+
+// try {
+//   const data = JSON.parse(fileContents)
+//   console.log(data);
+// } catch(err) {
+//   console.error(err);
+// }
