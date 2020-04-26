@@ -39,7 +39,23 @@
 		<!-- responsive css -->
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr css -->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+				<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+        var user,pass;
+        $("#submitcreate").click(function(){
+          user=$("#user").val();
+          pass=$("#password").val();
+          $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
+            if(data==='done')
+              {
+                alert("login success");
+              }
+          });
+        });
+      });
+		</script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -138,13 +154,16 @@
            <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        <form action="#" class="create-account-form" method="post">
+                        <form action="/login" class="create-account-form" method="post">
                             <h2 class="heading-title">
                                 CREATE AN ACCOUNT
                             </h2>
                             <p class="form-row">
-                                <input type="email" placeholder="Email address">
-                            </p>
+                                <input type="TEXT" placeholder="User name" id="user">
+														</p>
+														<p class="form-row">
+															<input type="password" placeholder="Password" id="password">
+													  </p>
                             <div class="submit">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
                                     <span>
