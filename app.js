@@ -6,10 +6,29 @@ const fs = require('fs');
 // const recommendations = require('./recommender');
 //const bookRouter = require("./api/book");
 
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+var str = "";
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.get('/test', (req, res) => {
+  MongoClient.connect(url,{ useUnifiedTopology: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("bookFind");
+    var cursor = dbo.collection('books').find();
+    cursor.forEach(function(item){
+      if (item != null) {
+        str = str + "    Book Title  " + item.title + "</br>";
+      }}, function(err) {
+        res.send(err);
+        db.close();
+      });
+  });
+})
+
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, './views/index.html'));
