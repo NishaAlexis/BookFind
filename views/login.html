@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Creat An Account || BookFind</title>
+        <title>Create An Account || BookFind</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon -->
@@ -41,21 +41,6 @@
 		<!-- modernizr css -->
 				<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-        var user,pass;
-        $("#submitcreate").click(function(){
-          user=$("#user").val();
-          pass=$("#password").val();
-          $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
-            if(data==='done')
-              {
-                alert("login success");
-              }
-          });
-        });
-      });
-		</script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -78,7 +63,7 @@
                         <div class="header-right">
                             <ul>
                                 <li>
-                                    <a href="login.html"><i class="flaticon-people"></i></a>
+                                    <a href="/login"><i class="flaticon-people"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -87,11 +72,11 @@
                         <div class="mainmenu text-center">
                             <nav>
                                 <ul id="nav">
-                                    <li><a href="index.html">HOME</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
-                                    <li><a href="my-account.html">MY ACCOUNT</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li><a href="/">HOME</a></li>
+                                    <li><a href="/browse">FEATURED</a></li>
+                                    <li><a href="/profile">MY ACCOUNT</a></li>
+                                    <li><a href="/about">ABOUT AUTHOR</a></li>
+                                    <li><a href="/contact">CONTACT</a></li>
                                 </ul>
                             </nav>
                         </div>                        
@@ -100,7 +85,7 @@
                         <div class="header-right">
                             <ul>
                                     <li>
-                                            <a href="login.html"><i class="flaticon-people"></i></a>
+                                            <a href="/login"><i class="flaticon-people"></i></a>
                                     </li>
                             </ul>
                         </div>
@@ -117,11 +102,11 @@
 						<div class="mobile-menu">
 							<nav id="dropdown">
 								<ul>
-                                    <li><a href="index.html">HOME</a></li>
-                                    <li><a href="shop.html">FEATURED</a></li>
-                                    <li><a href="my-account.html">MY ACCOUNT</a></li>
-                                    <li><a href="about.html">ABOUT AUTHOR</a></li>
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li><a href="/">HOME</a></li>
+                                    <li><a href="/browse">FEATURED</a></li>
+                                    <li><a href="/profile">MY ACCOUNT</a></li>
+                                    <li><a href="/about">ABOUT AUTHOR</a></li>
+                                    <li><a href="/contact">CONTACT</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -139,7 +124,7 @@
 					       <h2>LOGIN/REGISTER</h2> 
 					       <ul class="breadcrumbs-list">
 						        <li>
-						            <a title="Return to Home" href="index.html">Home</a>
+						            <a title="Return to Home" href="/">Home</a>
 						        </li>
 						        <li>Login</li>
 						    </ul>
@@ -154,15 +139,21 @@
            <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-sm-6">
-                        <form action="/login" class="create-account-form" method="post">
+                        <form action="/" class="create-account-form" method="post">
                             <h2 class="heading-title">
                                 CREATE AN ACCOUNT
                             </h2>
                             <p class="form-row">
-                                <input type="TEXT" placeholder="User name" id="user">
+															<input type="text" name="email" placeholder="E-mail" required="">
 														</p>
 														<p class="form-row">
-															<input type="password" placeholder="Password" id="password">
+															<input type="text" name="username" placeholder="Username" required="">
+														</p>
+														<p class="form-row">
+															<input type="password" name="password" placeholder="Password" id="password" required="" >
+														</p>
+														<p class="form-row">
+															<input type="password" name="passwordConf" placeholder="Confirm Password" id="password_conf" required="">
 													  </p>
                             <div class="submit">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
@@ -175,24 +166,21 @@
                         </form>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                       <form action="#" class="create-account-form" method="post">
+                       <form action="/" class="create-account-form" method="post">
                             <h2 class="heading-title">
                                 ALREADY RESIGTERED?
                             </h2>
                             <p class="form-row">
-                                <input type="email" placeholder="Email address">
+                                <input type="text" name="logemail" placeholder="E-mail" required="">
                             </p>
                             <p class="form-row">
-                                <input type="password" placeholder="Password">
+                                <input type="password" name="logpassword" placeholder="Password" required="">
                             </p>
-                            <p class="lost-password form-group">
-                                <a href="#" rel="nofollow">Forgot your password?</a>
-                            </p> 
                             <div class="submit">					
                                 <button name="submitcreate" id="submitcreate" type="submit" class="btn-default">
                                     <span>
                                         <i class="fa fa-user left"></i>
-                                        SING IN
+                                        SIGN IN
                                     </span>
                                 </button>
                             </div>                          
