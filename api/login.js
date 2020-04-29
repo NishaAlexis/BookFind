@@ -4,7 +4,11 @@ const path = require('path');
 var User = require('./user');
 
 router.get('/', function (req, res, next) {
-  res.sendFile(path.join(__dirname, '../views/login.html'));
+  res.render('login', {
+    title: "Create an Account",
+    breadcrumb: "Login / Register",
+    page: "Login"
+  });
 })
 
 router.post('/', function (req, res, next) {

@@ -1,0 +1,90 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // Shop Area Start
+    .shopping-area.section-padding
+      .container
+        .row
+          .col-md-3.col-sm-3.col-xs-12
+            .shop-widget
+              .shop-widget-bottom
+                aside.widget.widget-seller
+                  h2.sidebar-title TOP SELLERS
+                  .single-seller
+                    .seller-img
+                      img(src='img/shop/1.jpg', alt='')
+                    .seller-details
+                      a(href='/book')
+                        h5 Cold mountain
+                      h5 Author
+                  .single-seller
+                    .seller-img
+                      img(src='img/shop/2.jpg', alt='')
+                    .seller-details
+                      a(href='/book')
+                        h5 The historian
+                      h5 Author
+          .col-md-9.col-sm-9.col-xs-12
+            form(action='#')
+              .wishlist-right-area.table-responsive
+                table.wish-list-table
+                  thead
+                    tr
+                      th.t-product-name Products
+                      th.product-details-comment Product Details & Comment
+                      th.w-product-remove Remove
+                  tbody
+                    tr
+                      td.product-image
+                        a(href='#')
+                          img(src='img/wishlist/1.jpg', alt='')
+                      td.product-details
+                        h4 People of the book
+                        p
+                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                      td.product-remove
+                        a(href='#')
+                          i.flaticon-delete
+                    tr
+                      td.product-image
+                        a(href='#')
+                          img(src='img/wishlist/2.jpg', alt='')
+                      td.product-details
+                        h4 The historian
+                        p
+                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                      td.product-remove
+                        a(href='#')
+                          i.flaticon-delete
+                    tr
+                      td.product-image
+                        a(href='#')
+                          img(src='img/wishlist/3.jpg', alt='')
+                      td.product-details
+                        h4 Consequences
+                        p
+                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                      td.product-remove
+                        a(href='#')
+                          i.fa.fa-trash-o
+                a.btn.button.button-small(title='Save', href='shop.html')
+                  span
+                    | Save
+                    i.fa.fa-chevron-right
+            .wishlist-bottom-link
+              a.wishlist-single-link(href='/home')
+                i.fa.fa-angle-double-left
+                |                                 Back
+    // Shop Area End
+    // Footer Area Start
+    include includes/footer.pug

@@ -1,0 +1,89 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    .about-us-area.section-padding
+      .container
+        .row
+          .about-top-inner
+            .col-md-6
+              .about-inner
+                .about-title
+                  h2 Our Story
+                .about-content
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minim veniam, quis nostrud exerck itation ullam co laboris nisi ut aliquip ex ea commodo coes nsequat. Duis aute irure dolor in reprehenderit in.
+                  p
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minimLorem ipsum dolor sit amet, consectetur adipisicing elitss ed do eiusmod tempor incididunt ut labore et dolore mag na aliqua. Utes enim ad minim veniam, quis nostrud exerck itation ullam co laboris nisi ut aliquip ex ea commodo coes nsequat. Duis aute irure dolor in reprehenderit in.
+            .col-md-6
+              .about-image
+                img(src='img/about/1.jpg', alt='')
+    // Address Information Area Start
+    .address-info-area.section-padding
+      .container
+        .row
+          .col-md-4.hidden-sm
+            .address-single
+              .all-adress-info
+                .icon
+                  span
+                    i.fa.fa-user-plus
+                .info
+                  h3 PHONE
+                  p (+632) 0966-381-9207
+          .col-md-4.col-sm-6
+            .address-single
+              .all-adress-info
+                .icon
+                  span
+                    i.fa.fa-map-marker
+                .info
+                  h3 ADDRESS
+                  p AS 301, UP Cebu, Lahug
+                  p Cebu City, Cebu, Philippines.
+          .col-md-4.col-sm-6
+            .address-single.no-margin
+              .all-adress-info
+                .icon
+                  i.fa.fa-envelope
+                .info
+                  h3 E-MAIL
+                  p nppadura1@up.edu.ph
+              // <p>www.companyweb.com</p>
+    // Address Information Area End
+    // Contact Form Area Start
+    .contact-form-area
+      .container
+        .about-title
+          h3 LEAVE A MESSAGE
+        .row
+          .col-md-12
+            form(action='#', method='POST')
+        .row
+          .col-md-5
+            .contact-form-left
+              p.form-row
+                input#name(type='text', placeholder='Your Name', name='name')
+              p.form-row
+                input#email(type='email', placeholder='Your Email', name='email')
+              p.form-row  
+                input#phone(type='text', placeholder='Your phone', name='phone')
+          .col-md-7
+            .contact-form-right
+              .input-message
+                p.form-row
+                  textarea#message(name='message', placeholder='Your Message')
+                p.form-row
+                  input#submit.btn.btn-default(type='submit', value='SEND', name='submit')
+                  // Contact Form Area End
+                  // Footer Area Start
+    include includes/footer.pug

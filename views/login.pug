@@ -1,0 +1,50 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // Loging Area Start
+    .login-account.section-padding
+      .container
+        .row
+          .col-md-6.col-sm-6
+            form.create-account-form(action='/', method='post')
+              h2.heading-title
+                | CREATE AN ACCOUNT
+              p.form-row
+                input(type='text', name='email', placeholder='E-mail', required='')
+              p.form-row
+                input(type='text', name='username', placeholder='Username', required='')
+              p.form-row
+                input#password(type='password', name='password', placeholder='Password', required='')
+              p.form-row
+                input#password_conf(type='password', name='passwordConf', placeholder='Confirm Password', required='')
+              .submit
+                button#submitcreate.btn-default(name='submitcreate', type='submit')
+                  span
+                    i.fa.fa-user.left
+                    |                                         Create an account
+          .col-md-6.col-sm-6
+            form.create-account-form(action='/', method='post')
+              h2.heading-title
+                | ALREADY RESIGTERED?
+              p.form-row
+                input(type='text', name='logemail', placeholder='E-mail', required='')
+              p.form-row
+                input(type='password', name='logpassword', placeholder='Password', required='')
+              .submit
+                button#submitcreate.btn-default(name='submitcreate', type='submit')
+                  span
+                    i.fa.fa-user.left
+                    |                                         SIGN IN
+    // Loging Area End
+    // Footer Area Start
+    include includes/footer.pug

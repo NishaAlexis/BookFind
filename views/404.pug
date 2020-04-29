@@ -1,0 +1,24 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    //- include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // 404 Error Page Start
+    .error-text-area.section-padding
+      img(alt='', src='img/404-page.jpg')
+      .container
+        .row
+          .col-lg-12.col-md-12.col-sm-12
+            .error-text.text-center
+              a(href='/home') BACK TO HOME PAGE
+    // 404 Error Page End
+    // Footer Area Start
+    include includes/footer.pug

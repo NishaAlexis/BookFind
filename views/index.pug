@@ -1,0 +1,312 @@
+doctype html
+html
+  include includes/head.pug
+  body
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // slider Area Start
+    .slider-area
+      .bend.niceties.preview-1
+        #ensign-nivoslider.slides
+          img(src='img/slider/1.jpg', alt='', title='#slider-direction-1')
+          img(src='img/slider/2.jpg', alt='', title='#slider-direction-2')
+        // direction 1
+        #slider-direction-1.text-center.slider-direction
+          // layer 1
+          .layer-1
+            h2.title-1 LET’S WRITE IMAGINE
+          // layer 2
+          .layer-2
+            p.title-2
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          // layer 3
+          .layer-3
+            a.title-3(href='#') SEE MORE
+          // layer 4
+          .layer-4
+            form.title-4(action='#')
+              input(type='text', placeholder='Enter your book title here')
+              button(type='submit')
+                i.fa.fa-search
+        // direction 2
+        #slider-direction-2.slider-direction
+          // layer 1
+          .layer-1
+            h2.title-1 LET’S WRITE IMAGINE
+          // layer 2
+          .layer-2
+            p.title-2
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          // layer 3
+          .layer-3
+            a.title-3(href='#') SEE MORE
+          // layer 4
+          .layer-4
+            form.title-4(action='#')
+              input(type='text', placeholder='Enter your book title here')
+              button(type='submit')
+                i.fa.fa-search
+    // slider Area End
+    // Featured Product Area Start
+    .featured-product-area.section-padding
+      h2.section-title FEATURED PRODUCTS
+      .container
+        .row
+          .col-md-12
+            .tab-menu
+              // Nav tabs
+              ul.nav.nav-tabs(role='tablist')
+                li.first-item.active(role='presentation')
+                  a(href='#arrival', aria-controls='arrival', role='tab', data-toggle='tab') TOP RECOMMENDATIONS
+        .row
+          .product-list.tab-content
+            #arrival.tab-pane.fade.in.active(role='tabpanel')
+              .featured-product-list.indicator-style
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/1.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') East of eden
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/5.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') The historian
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/2.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') People of the book
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/6.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') Cold mountain
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/3.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') The secret letter
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/7.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') The historian
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/4.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') Lone some dove
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/8.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') The secret garden
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/1.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') East of eden
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/5.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') The historian
+                .single-p-banner
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/2.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') People of the book
+                  .col-md-3
+                    .single-banner
+                      .product-wrapper
+                        a.single-banner-image-wrapper(href='#')
+                          img(alt='', src='img/featured/6.jpg')
+                        .product-description
+                          .functional-buttons
+                            a(href='#', title='Add to Wishlist')
+                              i.fa.fa-heart-o
+                            a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                              i.fa.fa-compress
+                      .banner-bottom.text-center
+                        a(href='#') Cold mountain
+    // Featured Product Area End
+    // Blog Area Start
+    .blog-area.section-padding
+      h2.section-title LATEST BLOG
+      p The Latest Blog post for the biggest Blog for the books Library.
+      .container
+        .row
+          .blog-list.indicator-style
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-young-adult-fiction-books-2019', target='_blank')
+                  img(src='img/blog/blog1.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-young-adult-fiction-books-2019', target='_blank')
+                    h2 BEST YOUNG ADULT FICTION
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">2020</span>
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-romance-books-2019', target='_blank')
+                  img(src='img/blog/blog2.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-romance-books-2019', target='_blank')
+                    h2 BEST ROMANCE
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">19TH JAN 2016</span>
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2019', target='_blank')
+                  img(src='img/blog/blog3.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-mystery-thriller-books-2019', target='_blank')
+                    h2 BEST MYSTERY & THRILLER
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">19TH JAN 2016</span>
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-historical-fiction-books-2019', target='_blank')
+                  img(src='img/blog/blog4.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-historical-fiction-books-2019', target='_blank')
+                    h2 BEST HISTORICAL FICTION
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">19TH JAN 2016</span>
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-science-fiction-books-2019', target='_blank')
+                  img(src='img/blog/blog5.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-science-fiction-books-2019', target='_blank')
+                    h2 BEST SCIENCE FICTION
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">19TH JAN 2016</span>
+            .col-md-3
+              .single-blog
+                a(href='https://www.goodreads.com/choiceawards/best-young-adult-fantasy-books-2019', target='_blank')
+                  img(src='img/blog/blog6.jpg', alt='')
+                .blog-info.text-center
+                  a(href='https://www.goodreads.com/choiceawards/best-young-adult-fantasy-books-2019', target='_blank')
+                    h2 BEST YOUNG ADULT FANTASY & SCIENCE FICTION
+                  .blog-info-bottom
+                    span.blog-author
+                      | BY: 
+                      a(href='https://www.goodreads.com/choiceawards/best-books-2019', target='_blank') goodreads CHOICE AWARDS 2019
+                    // <span class="blog-date">19TH JAN 2016</span>
+    // Blog Area End
+    // Footer Area Start
+    include includes/footer.pug

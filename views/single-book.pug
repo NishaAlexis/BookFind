@@ -1,0 +1,134 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // Single Product Area Start
+    .single-product-area.section-padding
+      .container
+        .row
+          .col-md-6.col-sm-7
+            .single-product-image-inner
+              // Tab panes
+              .tab-content
+                #one.tab-pane.active(role='tabpanel')
+                  a.venobox(href='img/single-product/bg-1.jpg', data-gall='gallery', title='')
+                    img(src='img/single-product/bg-1.jpg', alt='')
+              // Nav tabs
+          .col-md-6.col-sm-5
+            .single-product-details
+              h2 Cold mountain
+              p
+                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              .add-to-wishlist
+                a.wish-btn(href='cart.html')
+                  i.fa.fa-heart-o
+                  |                                     ADD TO WISHLIST
+              .single-product-categories
+                label Categories:
+                span e-book, biological, business
+      .row
+        .col-md-9
+          .p-details-tab-content
+            .p-details-tab
+              ul.p-details-nav-tab(role='tablist')
+                li.active(role='presentation')
+                  a(href='#more-info', aria-controls='more-info', role='tab', data-toggle='tab') Description
+            .clearfix
+            .tab-content.review
+              #more-info.tab-pane.active(role='tabpanel')
+                p
+                  | Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!
+    // Single Product Area End
+    // Related Product Area Start
+    .related-product-area
+      h2.section-title RELATED PRODUCTS
+      .container
+        .row
+          .related-product.indicator-style
+            .col-md-3
+              .single-banner
+                .product-wrapper
+                  a.single-banner-image-wrapper(href='#')
+                    img(alt='', src='img/featured/1.jpg')
+                  .product-description
+                    .functional-buttons
+                      a(href='#', title='Add to Cart')
+                        i.fa.fa-shopping-cart
+                      a(href='#', title='Add to Wishlist')
+                        i.fa.fa-heart-o
+                      a(href='#', title='Quick View')
+                        i.fa.fa-compress
+                .banner-bottom.text-center
+                  a(href='#') People of the book
+            .col-md-3
+              .single-banner
+                .product-wrapper
+                  a.single-banner-image-wrapper(href='#')
+                    img(alt='', src='img/featured/2.jpg')
+                  .product-description
+                    .functional-buttons
+                      a(href='#', title='Add to Cart')
+                        i.fa.fa-shopping-cart
+                      a(href='#', title='Add to Wishlist')
+                        i.fa.fa-heart-o
+                      a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                        i.fa.fa-compress
+                .banner-bottom.text-center
+                  a(href='#') East of eden
+            .col-md-3
+              .single-banner
+                .product-wrapper
+                  a.single-banner-image-wrapper(href='#')
+                    img(alt='', src='img/featured/3.jpg')
+                  .product-description
+                    .functional-buttons
+                      a(href='#', title='Add to Cart')
+                        i.fa.fa-shopping-cart
+                      a(href='#', title='Add to Wishlist')
+                        i.fa.fa-heart-o
+                      a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                        i.fa.fa-compress
+                .banner-bottom.text-center
+                  a(href='#') Lone some dove
+            .col-md-3
+              .single-banner
+                .product-wrapper
+                  a.single-banner-image-wrapper(href='#')
+                    img(alt='', src='img/featured/4.jpg')
+                  .product-description
+                    .functional-buttons
+                      a(href='#', title='Add to Cart')
+                        i.fa.fa-shopping-cart
+                      a(href='#', title='Add to Wishlist')
+                        i.fa.fa-heart-o
+                      a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                        i.fa.fa-compress
+                .banner-bottom.text-center
+                  a(href='#') The secret garden
+            .col-md-3
+              .single-banner
+                .product-wrapper
+                  a.single-banner-image-wrapper(href='#')
+                    img(alt='', src='img/featured/5.jpg')
+                  .product-description
+                    .functional-buttons
+                      a(href='#', title='Add to Cart')
+                        i.fa.fa-shopping-cart
+                      a(href='#', title='Add to Wishlist')
+                        i.fa.fa-heart-o
+                      a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                        i.fa.fa-compress
+                .banner-bottom.text-center
+                  a(href='#') Twilight
+    // Related Product Area End
+    // Footer Area Start
+    include includes/footer.pug

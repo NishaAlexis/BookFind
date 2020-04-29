@@ -11,6 +11,9 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
 mongoose.connect('mongodb://localhost:27017/bookFind');
 var db = mongoose.connection;
 
@@ -20,11 +23,7 @@ db.once('open', function() { });
 app.use(session({
   secret: 'work hard',
   resave: true,
-  saveUninitialized: false,
-  store: new MongoDBStore({
-    url: "mongodb://localhost:27017/bookFind",
-    collection: 'account'
-  })
+  saveUninitialized: true
 }));
 
 var routes = require('./api/login');
@@ -51,32 +50,68 @@ app.use('/', routes);
 //   });
 // })
 
-// app.use(loginRouter);
+// function requireLogin (req, res, next) {
+//   if (!req.user) {
+//     res.redirect('/');
+//   } else {
+//     next();
+//   }
+// };
 
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, './views/index.html'));
-// });
-// app.get("/about",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/about.html'));
-// });
-// app.get("/contact",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/contact.html'));
-// });
-// app.get("/book",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/single-book.html'));
-// });
-// app.get("/profile",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/my-account.html'));
-// });
-// app.get("/login",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/login.html'));
-// });
-// app.get("/browse",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/shop.html'));
-// });
-// app.get("*",function(req,res){
-//   res.sendFile(path.join(__dirname, './views/404.html'));
-// });
+app.get('/home', requireLogin, function(req, res){
+  res.render('index', {
+    title: "Home"
+  });
+});
+
+app.get('/contact', function(req, res){
+  res.render('contact', {
+    title: "Contact Us",
+    breadcrumb: "Contact Us",
+    page: "Contact"
+  });
+});
+
+app.get('/account', function(req, res){
+  res.render('account', {
+    title: "My Account",
+    breadcrumb: "My Account",
+    page: "Account"
+  });
+});
+
+app.get('/book', function(req, res){
+  res.render('single-book', {
+    title: "Book Details",
+    breadcrumb: "Book Details",
+    page: "Single Book"
+  });
+});
+
+app.get('/browse', function(req, res){
+  res.render('featured', {
+    title: "Featured Books",
+    breadcrumb: "Featured Books",
+    page: "Featured"
+  });
+});
+
+app.get('/wishlist', function(req, res){
+  res.render('wishlist', {
+    title: "My Wishlist",
+    breadcrumb: "My Wishlist",
+    page: "Wishlist"
+  });
+});
+
+app.use(function(req, res){
+  res.status(404);
+  res.render('404', {
+    title: "404 Page not Found",
+    breadcrumb: "404 Page",
+    page: "404 Page"
+  });
+});
 
 app.listen(3000, function(){
   console.log("Listening on port 3000...")

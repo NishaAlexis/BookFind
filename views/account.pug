@@ -1,0 +1,164 @@
+doctype html
+html.no-js(lang='')
+  include includes/head.pug
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // My Account Area Start
+    .my-account-area.section-padding
+      .container
+        .section-title2
+          h2 Account Profile
+          p
+            | Welcome to your account. Here you can manage all of your personal information and preferences.
+        .row
+          .addresses-lists
+            .col-xs-12.col-sm-6.col-lg-6
+              #accordion.panel-group(role='tablist', aria-multiselectable='true')
+                .panel.panel-default
+                  #headingOne.panel-heading(role='tab')
+                    h4.panel-title
+                      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                        i.fa.fa-building
+                        span My personal information
+                  #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+                    .panel-body
+                      .coupon-info
+                        h1.heading-title Your personal information
+                        p.coupon-text Please be sure to update your personal information if it has changed.
+                        p.required *Required field
+                        form(action='#')
+                          .form-row
+                            label
+                              span.required *
+                              | Gender
+                            .radio-inline
+                              label.top
+                                span.checked
+                                  input(type='radio')
+                                | 																Male
+                            .radio-inline
+                              label.top
+                                span.checked
+                                  input(type='radio')
+                                | 																Female
+                          p.form-row
+                            input(type='text', placeholder='Your Full Name *')
+                          p.form-row
+                            input(type='text', placeholder='E-mail address')
+                          .country-select.shop-select
+                            label Which age range do you belong to?
+                            .row
+                              .col-xs-4
+                                select
+                                  option 11 or below
+                                  option 12 - 17
+                                  option 18 - 24
+                                  option 25 - 34
+                                  option 35 or above
+                          .country-select.shop-select
+                            label Choose your top three favorite genres. 
+                            .row
+                              .col-xs-4
+                                select
+                                  option Art
+                                  option Business
+                                  option Children's
+                                  option Classics
+                                  option Comics
+                                  option Fantasy
+                                  option Fiction
+                                  option Historical Fiction
+                                  option Historical
+                                  option Horror
+                                  option Mystery
+                                  option Nonfiction
+                                  option Psychology
+                                  option Romance
+                                  option Science
+                                  option Science Fiction
+                                  option Sports
+                                  option Thriller
+                                  option Travel
+                                  option Young Adult
+                              .col-xs-4
+                                select
+                                  option Business
+                                  option Art
+                                  option Children's
+                                  option Classics
+                                  option Comics
+                                  option Fantasy
+                                  option Fiction
+                                  option Historical Fiction
+                                  option Historical
+                                  option Horror
+                                  option Mystery
+                                  option Nonfiction
+                                  option Psychology
+                                  option Romance
+                                  option Science
+                                  option Science Fiction
+                                  option Sports
+                                  option Thriller
+                                  option Travel
+                                  option Young Adult
+                              .col-xs-4
+                                select
+                                  option Nonfiction
+                                  option Art
+                                  option Business
+                                  option Children's
+                                  option Classics
+                                  option Comics
+                                  option Fantasy
+                                  option Fiction
+                                  option Historical Fiction
+                                  option Historical
+                                  option Horror
+                                  option Mystery
+                                  option Psychology
+                                  option Romance
+                                  option Science
+                                  option Science Fiction
+                                  option Sports
+                                  option Thriller
+                                  option Travel
+                                  option Young Adult
+                          div
+                            label Reset Password?
+                            p.form-row
+                              input(type='text', placeholder='Current Password')
+                            p.form-row
+                              input(type='text', placeholder='New Password')
+                            p.form-row
+                              input(type='text', placeholder='Confirmation')
+                          a.btn.button.button-small(title='Save', href='shop.html')
+                            span
+                              | Save
+                              i.fa.fa-chevron-right
+            .col-xs-12.col-sm-6.col-lg-6
+              .myaccount-link-list
+                .panel.panel-default
+                  .panel-heading
+                    h4.panel-title
+                      a(href='wishlist.html')
+                        i.fa.fa-heart
+                        span My wishlists
+        .row
+          .col-md-12
+            .create-account-button.pull-left
+              a.btn.button.button-small(href='index.html', title='Home')
+                span
+                  i.fa.fa-chevron-left
+                  | 									  Home
+    // My Account Area End
+    // Footer Area Start
+    include includes/footer.pug
