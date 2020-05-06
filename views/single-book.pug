@@ -21,20 +21,19 @@ html.no-js(lang='')
               .tab-content
                 #one.tab-pane.active(role='tabpanel')
                   a.venobox(href='img/single-product/bg-1.jpg', data-gall='gallery', title='')
-                    img(src='img/single-product/bg-1.jpg', alt='')
+                    img(src=book[0].image_url, alt='')
               // Nav tabs
           .col-md-6.col-sm-5
             .single-product-details
-              h2 Cold mountain
-              p
-                | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+              h1= book[0].title
+              h4= book[0].author
               .add-to-wishlist
                 a.wish-btn(href='cart.html')
                   i.fa.fa-heart-o
                   |                                     ADD TO WISHLIST
               .single-product-categories
                 label Categories:
-                span e-book, biological, business
+                span #{book[0].content}
       .row
         .col-md-9
           .p-details-tab-content
@@ -46,7 +45,7 @@ html.no-js(lang='')
             .tab-content.review
               #more-info.tab-pane.active(role='tabpanel')
                 p
-                  | Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!
+                  | #{book[0].description}
     // Single Product Area End
     // Related Product Area Start
     .related-product-area
@@ -58,7 +57,7 @@ html.no-js(lang='')
               .single-banner
                 .product-wrapper
                   a.single-banner-image-wrapper(href='#')
-                    img(alt='', src='img/featured/1.jpg')
+                    img(alt='', src=book[0].recoms_info[0].image_url)
                   .product-description
                     .functional-buttons
                       a(href='#', title='Add to Cart')
@@ -68,12 +67,12 @@ html.no-js(lang='')
                       a(href='#', title='Quick View')
                         i.fa.fa-compress
                 .banner-bottom.text-center
-                  a(href='#') People of the book
+                  a(href='#') #{book[0].recoms_info[0].title}
             .col-md-3
               .single-banner
                 .product-wrapper
                   a.single-banner-image-wrapper(href='#')
-                    img(alt='', src='img/featured/2.jpg')
+                    img(alt='', src=book[0].recoms_info[1].image_url)
                   .product-description
                     .functional-buttons
                       a(href='#', title='Add to Cart')
@@ -83,12 +82,12 @@ html.no-js(lang='')
                       a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                         i.fa.fa-compress
                 .banner-bottom.text-center
-                  a(href='#') East of eden
+                  a(href='#') #{book[0].recoms_info[1].title}
             .col-md-3
               .single-banner
                 .product-wrapper
                   a.single-banner-image-wrapper(href='#')
-                    img(alt='', src='img/featured/3.jpg')
+                    img(alt='', src=book[0].recoms_info[2].image_url)
                   .product-description
                     .functional-buttons
                       a(href='#', title='Add to Cart')
@@ -98,12 +97,12 @@ html.no-js(lang='')
                       a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                         i.fa.fa-compress
                 .banner-bottom.text-center
-                  a(href='#') Lone some dove
+                  a(href='#') #{book[0].recoms_info[2].title}
             .col-md-3
               .single-banner
                 .product-wrapper
                   a.single-banner-image-wrapper(href='#')
-                    img(alt='', src='img/featured/4.jpg')
+                    img(alt='', src=book[0].recoms_info[3].image_url)
                   .product-description
                     .functional-buttons
                       a(href='#', title='Add to Cart')
@@ -113,12 +112,12 @@ html.no-js(lang='')
                       a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                         i.fa.fa-compress
                 .banner-bottom.text-center
-                  a(href='#') The secret garden
+                  a(href='#') #{book[0].recoms_info[3].title}
             .col-md-3
               .single-banner
                 .product-wrapper
                   a.single-banner-image-wrapper(href='#')
-                    img(alt='', src='img/featured/5.jpg')
+                    img(alt='', src=book[0].recoms_info[4].image_url)
                   .product-description
                     .functional-buttons
                       a(href='#', title='Add to Cart')
@@ -128,7 +127,7 @@ html.no-js(lang='')
                       a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                         i.fa.fa-compress
                 .banner-bottom.text-center
-                  a(href='#') Twilight
+                  a(href='#') #{book[0].recoms_info[4].title}
     // Related Product Area End
     // Footer Area Start
     include includes/footer.pug

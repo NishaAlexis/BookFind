@@ -22,42 +22,42 @@ html.no-js(lang='')
                   h2.sidebar-title.text-center CATEGORY
                   ul.sidebar-menu
                     li
-                      a(href='#')
+                      a(href='/browse/youngadult')
                         i.fa.fa-angle-double-right
                         |                                                 YOUNG ADULT                                          
-                        span (1680)
+                        span (1567)
                     li
-                      a(href='#')
+                      a(href='/browse/sciencefiction')
                         i.fa.fa-angle-double-right
                         |                                                 SCIENCE FICTION                                            
-                        span (1015)
+                        span (682)
                     li
-                      a(href='#')
+                      a(href='/browse/classics')
                         i.fa.fa-angle-double-right
                         |                                                CLASSICS
-                        span (1185)
+                        span (1103)
                     li
-                      a(href='#')
+                      a(href='/browse/fantasy')
                         i.fa.fa-angle-double-right
                         |                                                 FANTASY                                          
-                        span (3800)
+                        span (2006)
               .shop-widget-bottom
                 aside.widget.widget-seller
                   h2.sidebar-title TOP SELLERS
                   .single-seller
                     .seller-img
-                      img(src='img/shop/1.jpg', alt='')
+                      img(src="https://images.gr-assets.com/books/1447303603l/2767052.jpg", alt='')
                     .seller-details
                       a(href='/book')
-                        h5 Cold mountain
-                      h5 Author
+                        h5 The Hunger Games
+                      h5 Suzanne Collins
                   .single-seller
                     .seller-img
-                      img(src='img/shop/2.jpg', alt='')
+                      img(src="https://images.gr-assets.com/books/1255614970l/2.jpg", alt='')
                     .seller-details
                       a(href='/book')
-                        h5 The historian
-                      h5 Author
+                        h5 Harry Potter and the Order of the Phoenix
+                      h5 J.K. Rowling
           .col-md-9.col-sm-9.col-xs-12
             .shop-tab-area
               .shop-tab-list
@@ -71,32 +71,6 @@ html.no-js(lang='')
                       a(data-toggle='pill', href='#menu1')
                         i.fa.fa-th-list
                         span List
-                .shop-tab-pill.pull-right
-                  ul
-                    li.product-size-deatils
-                      .show-label
-                        label Show : 
-                        select
-                          option(value='10', selected='selected') 10
-                          option(value='09') 09
-                          option(value='08') 08
-                          option(value='07') 07
-                          option(value='06') 06
-                    li.product-size-deatils
-                      .show-label
-                        label
-                          i.fa.fa-sort-amount-asc
-                          | Sort by :
-                        select
-                          option(value='position', selected='selected') Position
-                          option(value='Name') Name
-                    li.shop-pagination
-                      a(href='#') 1
-                    li.shop-pagination
-                      a(href='#') 2
-                    li.shop-pagination
-                      a(href='#')
-                        i.fa.fa-caret-right
               .tab-content
                 #home.row.tab-pane.fade.in.active
                   .shop-single-product-area
@@ -104,7 +78,7 @@ html.no-js(lang='')
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/1.jpg')
+                            img(alt='', src=book[0].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -113,12 +87,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') East of eden
+                            a(href='/book') #{book[0].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/2.jpg')
+                            img(alt='', src=book[1].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -127,12 +101,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') People of the book
+                            a(href='/book') #{book[1].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/3.jpg')
+                            img(alt='', src=book[2].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -141,12 +115,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') The secret letter
+                            a(href='/book') #{book[2].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/4.jpg')
+                            img(alt='', src=book[3].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -155,12 +129,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') Lone some dove
+                            a(href='/book') #{book[3].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/5.jpg')
+                            img(alt='', src=book[4].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -169,12 +143,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') The historian
+                            a(href='/book') #{book[4].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/6.jpg')
+                            img(alt='', src=book[5].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -183,12 +157,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') East of eden
+                            a(href='/book') #{book[5].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/7.jpg')
+                            img(alt='', src=book[6].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -197,12 +171,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') Cold mountain
+                            a(href='/book') #{book[6].title}
                     .col-md-4.col-sm-6
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/8.jpg')
+                            img(alt='', src=book[7].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -211,12 +185,12 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') Twilight
+                            a(href='/book') #{book[7].title}
                     .col-md-4.hidden-sm
                       .single-banner
                         .product-wrapper
                           a.single-banner-image-wrapper(href='#')
-                            img(alt='', src='img/featured/1.jpg')
+                            img(alt='', src=book[8].image_url)
                           .product-description
                             .functional-buttons
                               a(href='#', title='Add to Wishlist')
@@ -225,20 +199,62 @@ html.no-js(lang='')
                                 i.fa.fa-compress
                         .banner-bottom.text-center
                           .banner-bottom-title
-                            a(href='#') East of eden
+                            a(href='/book') #{book[8].title}
+                    .col-md-4.col-sm-6
+                      .single-banner
+                        .product-wrapper
+                          a.single-banner-image-wrapper(href='#')
+                            img(alt='', src=book[9].image_url)
+                          .product-description
+                            .functional-buttons
+                              a(href='#', title='Add to Wishlist')
+                                i.fa.fa-heart-o
+                              a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                                i.fa.fa-compress
+                        .banner-bottom.text-center
+                          .banner-bottom-title
+                            a(href='/book') #{book[9].title}
+                    .col-md-4.col-sm-6
+                      .single-banner
+                        .product-wrapper
+                          a.single-banner-image-wrapper(href='#')
+                            img(alt='', src=book[10].image_url)
+                          .product-description
+                            .functional-buttons
+                              a(href='#', title='Add to Wishlist')
+                                i.fa.fa-heart-o
+                              a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                                i.fa.fa-compress
+                        .banner-bottom.text-center
+                          .banner-bottom-title
+                            a(href='/book') #{book[10].title}
+                    .col-md-4.hidden-sm
+                      .single-banner
+                        .product-wrapper
+                          a.single-banner-image-wrapper(href='#')
+                            img(alt='', src=book[11].image_url)
+                          .product-description
+                            .functional-buttons
+                              a(href='#', title='Add to Wishlist')
+                                i.fa.fa-heart-o
+                              a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
+                                i.fa.fa-compress
+                        .banner-bottom.text-center
+                          .banner-bottom-title
+                            a(href='/book') #{book[11].title}
                 #menu1.tab-pane.fade
                   .row
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
-                          a(href='single-product.html', title='East of eden')
-                            img(src='img/featured/1.jpg', alt='')
+                          a(href='/book', title='')
+                            img(src=book[0].image_url, alt='')
                       .col-xs-12.col-sm-7.col-md-8
                         .deal-product-content
                           h4
-                            a(href='single-product.html', title='East of eden') East of eden
+                            a(href='/book', title='') #{book[0].title}
                           p
-                            | Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!
+                            | #{book[0].description}
                           //- .availability
                           //-   span In stock
                           //-   span
@@ -246,36 +262,128 @@ html.no-js(lang='')
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
-                          a(href='single-product.html', title='People of the book')
-                            img(src='img/featured/2.jpg', alt='')
+                          a(href='/book', title='')
+                            img(src=book[1].image_url, alt='')
                       .col-xs-12.col-sm-7.col-md-8
                         .deal-product-content
                           h4
-                            a(href='single-product.html', title='People of the book') People of the book
+                            a(href='/book', title='') #{book[1].title}
                           p
-                            | Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!
+                            | #{book[1].description}
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
-                          a(href='single-product.html', title='The secret letter')
-                            img(src='img/featured/3.jpg', alt='')
+                          a(href='/book', title='')
+                            img(src=book[2].image_url, alt='')
                       .col-xs-12.col-sm-7.col-md-8
                         .deal-product-content
                           h4
-                            a(href='single-product.html', title='The secret letter') The secret letter
+                            a(href='/book', title='') #{book[2].title}
                           p
-                            | Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!
+                            | #{book[2].description}
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
-                          a(href='single-product.html', title='Lone some dove')
-                            img(src='img/featured/4.jpg', alt='')
+                          a(href='/book', title='')
+                            img(src=book[3].image_url, alt='')
                       .col-xs-12.col-sm-7.col-md-8
                         .deal-product-content
                           h4
-                            a(href='single-product.html', title='Lone some dove') Lone some dove
+                            a(href='/book', title='') #{book[3].title}
                           p
-                            | Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!
+                            | #{book[3].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[4].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[3].title}
+                          p
+                            | #{book[4].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[5].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[0].title}
+                          p
+                            | #{book[5].description}
+                          //- .availability
+                          //-   span In stock
+                          //-   span
+                          //-     a(href='cart.html') Add to cart
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[6].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[1].title}
+                          p
+                            | #{book[6].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[7].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[2].title}
+                          p
+                            | #{book[7].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[8].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[3].title}
+                          p
+                            | #{book[8].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[9].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[3].title}
+                          p
+                            | #{book[9].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[10].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[3].title}
+                          p
+                            | #{book[10].description}
+                    .single-shop-product
+                      .col-xs-12.col-sm-5.col-md-4
+                        .left-item
+                          a(href='/book', title='')
+                            img(src=book[11].image_url, alt='')
+                      .col-xs-12.col-sm-7.col-md-8
+                        .deal-product-content
+                          h4
+                            a(href='/book', title='') #{book[3].title}
+                          p
+                            | #{book[11].description}
     // Shop Area End
     // Footer Area Start
     include includes/footer.pug

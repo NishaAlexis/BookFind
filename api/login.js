@@ -69,6 +69,12 @@ router.get('/profile', function (req, res, next) {
           err.status = 400;
           return next(err);
         } else {
+          // res.render('account', {
+          //   title: "My Account",
+          //   header: "Welcome" + user.username,
+          //   breadcrumb: "My Account",
+          //   page: "Account"
+          // });
           return res.send('<h1>Name: </h1>' + user.username + '<h2>Mail: </h2>' + user.email + '<br><a type="button" href="/logout">Logout</a>')
         }
       }

@@ -1,27 +1,27 @@
-//var mongo = require('mongodb');
-// var MongoClient = require('mongodb').MongoClient;
-// //Create a database named "mydb":
-// var url = "mongodb://localhost:27017/bookFind";
+const MongoClient = require("mongodb").MongoClient;
 
-// MongoClient.connect(url,{ useUnifiedTopology: true }, function(err, db){
-//   console.log("Connected");
-//   var cursor = db.collection('books').find({author: "C.S. Lewis"});
-//   cursor.each(function(err, doc){
-//     console.log(doc);
-//   })
-//   db.close();
-// });
+const dbConnectionUrl = "mongodb+srv://admin:admin8616@cluster0-okijj.gcp.mongodb.net/test?retryWrites=true&w=majority";
 
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+function initialize(
+    dbName,
+    dbCollectionName,
+    successCallback,
+    failureCallback
+) {
+    MongoClient.connect(dbConnectionUrl, function(err, dbInstance) {
+        if (err) {
+            console.log(`[MongoDB connection] ERROR: ${err}`);
+            failureCallback(err); // this should be "caught" by the calling function
+        } else {
+            const dbObject = dbInstance.db(dbName);
+            const dbCollection = dbObject.collection(dbCollectionName);
+            console.log("[MongoDB connection] SUCCESS");
 
-MongoClient.connect(url,{ useUnifiedTopology: true }, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("bookFind");
-  var query = {author: "Harper Lee"};
-  dbo.collection("books").find(query, {projection: {image_url: 1}}).toArray(function(err, result){
-    console.log(result);  
-    db.close();
-  });
+            successCallback(dbCollection);
+        }
+    });
+}
 
-});
+module.exports = {
+    initialize
+};
