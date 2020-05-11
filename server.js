@@ -31,9 +31,6 @@ client.connect(err => {
   const db = client.db('bookFind')
   const bookCollection = db.collection('book')
 
-  bookCollection.update({}, {$set: {"recoms": []}}, false, true);
-  console.log("updated db");
-
   // ========================
   // Middlewares
   // ========================
@@ -50,6 +47,9 @@ client.connect(err => {
   //   store: store
   // }));
 
+  // var login = require('./api/login');
+  // app.use('/', login);
+
   app.get('/home', function(req, res){
     bookCollection.find({}).limit(12).toArray()
       .then(book => {
@@ -64,15 +64,22 @@ client.connect(err => {
 
   app.get('/book', (req, res) => {
     bookCollection.aggregate([
-      { $match : {bookId : 1000001}},
+      { $match : { id: 1000004 }},
+      { $lookup: {
+        from: 'recommendations',
+        localField: 'id',
+        foreignField: 'bookId',
+        as: 'recoms'
+      }},
       { $lookup: {
         from: 'book',
-        localField: 'recoms',
-        foreignField: 'bookId',
+        localField: 'recoms.recommendations.bookId',
+        foreignField: 'id',
         as: 'recoms_info'
       }}
     ]).toArray()
       .then(book => {
+        // console.log(book[0].recoms_info[0].image_url)
         res.render('single-book', {
           title: "Book Details",
           header: "Welcome",
