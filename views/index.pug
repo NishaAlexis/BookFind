@@ -11,8 +11,8 @@ html
     .slider-area
       .bend.niceties.preview-1
         #ensign-nivoslider.slides
-          img(src='img/slider/1.jpg', alt='', title='#slider-direction-1')
-          img(src='img/slider/2.jpg', alt='', title='#slider-direction-2')
+          img(src='img/background-2.jpg', alt='', title='#slider-direction-1')
+          img(src='img/background.jpeg', alt='', title='#slider-direction-2')
         // direction 1
         #slider-direction-1.text-center.slider-direction
           // layer 1
@@ -22,31 +22,10 @@ html
           .layer-2
             p.title-2
               | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          // layer 3
-          .layer-3
-            a.title-3(href='#') SEE MORE
           // layer 4
           .layer-4
-            form.title-4(action='#')
-              input(type='text', placeholder='Enter your book title here')
-              button(type='submit')
-                i.fa.fa-search
-        // direction 2
-        #slider-direction-2.slider-direction
-          // layer 1
-          .layer-1
-            h2.title-1 LET’S WRITE IMAGINE
-          // layer 2
-          .layer-2
-            p.title-2
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          // layer 3
-          .layer-3
-            a.title-3(href='#') SEE MORE
-          // layer 4
-          .layer-4
-            form.title-4(action='#')
-              input(type='text', placeholder='Enter your book title here')
+            form.title-4(action='/home', method='post')
+              input(type='text', placeholder='Enter your book title here' name='search')
               button(type='submit')
                 i.fa.fa-search
     // slider Area End
