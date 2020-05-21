@@ -32,8 +32,6 @@ client.connect(err => {
   const bookCollection = db.collection('book');
   const userCollection = db.collection('user');
   const profileCollection = db.collection('account');
-
-
   // ========================
   // Middlewares
   // ========================
@@ -56,7 +54,6 @@ client.connect(err => {
   // }));
 
   var User = "";
-
   app.get('/', function(req, res){
     res.render('register', {
       title: "Create an Account",
@@ -95,13 +92,38 @@ client.connect(err => {
     })
   })
 
-  function capital_letter(str) {
-    str = str.split(" ");
-    for (var i = 0, x = str.length; i < x; i++) {
-        str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+  app.get('/account', function(req, res){
+    if (User != "") {
+      res.render('account', {
+        title: "My Account",
+        header: "Welcome " + User,
+        breadcrumb: "My Account",
+        page: "Account"
+      });
+    } else {
+      res.redirect('/');
     }
-    return str.join(" ");
-  }
+  });
+  app.post('/account', function(req, res) {
+    profileCollection.insertOne({
+      email: req.body.email,
+      fullname: req.body.fullname,
+      gender: req.body.gender,
+      age_range: req.body.age,
+      genre1: req.body.genre1, 
+      genre2: req.body.genre2,
+      genre3: req.body.genre3
+    })
+    res.redirect('/browse')
+  })
+
+  // function capital_letter(str) {
+  //   str = str.split(" ");
+  //   for (var i = 0, x = str.length; i < x; i++) {
+  //       str[i] = str[i][0].toUpperCase() + str[i].substr(1);
+  //   }
+  //   return str.join(" ");
+  // }
 
   var bookSearch = '';
   app.get('/home', function(req, res){
@@ -116,15 +138,15 @@ client.connect(err => {
       .catch(err)
   });
   app.post('/home', function(req, res){
-    console.log(req.body.search);
     var query = req.body.search;
     bookSearch = query;
     res.redirect('/browse');
   })
 
+  var bookTitle = '';
   app.get('/book', (req, res) => {
     bookCollection.aggregate([
-      { $match : { title: "To Kill a Mockingbird" }},
+      { $match : { title : bookTitle }},
       { $lookup: {
         from: 'recommendations',
         localField: 'id',
@@ -150,35 +172,79 @@ client.connect(err => {
       })
       .catch(err)
   })
-  app.get('/book/:id', function(req, res){
-    console.log(req.params.id);
-    res.end();
+  app.get('/book/:title', function(req, res){
+    var query = req.params.title
+    bookTitle = query;
+    res.redirect('/book');
   })
 
-  app.get('/account', function(req, res){
-    if (User != "") {
-      res.render('account', {
-        title: "My Account",
-        header: "Welcome " + User,
-        breadcrumb: "My Account",
-        page: "Account"
-      });
-    } else {
-      res.redirect('/');
+  var genreSearch = '';
+  app.get('/browse', function(req, res){
+    //TODO: add if statement for account holders
+    if (bookSearch != '') {
+      bookCollection.find({$text: {$search: bookSearch}}).limit(12).toArray()
+      .then(book => {
+        res.render('featured', {
+          title: "Featured Books",
+          header: "Welcome " + User,
+          breadcrumb: "Featured Books",
+          page: "Featured " + bookSearch,
+          book: book
+        });
+      })
+    } else if (genreSearch != '') {
+      bookCollection.aggregate([
+        { $match : { $text: {$search: genreSearch}}},
+        { $sample: {size: 12}}
+      ]).toArray()
+      .then(book => {
+        res.render('featured', {
+          title: "Featured Books",
+          header: "Welcome " + User,
+          breadcrumb: "Featured Books",
+          page: "Featured " + genreSearch,
+          book: book
+        });
+      })
+    } else if (bookSearch === '' && genreSearch === '') {
+      bookCollection.aggregate([
+        { $sample: {size: 12}}
+      ]).toArray()
+      .then(book => {
+        res.render('featured', {
+          title: "Featured Books",
+          header: "Welcome " + User,
+          breadcrumb: "Featured Books",
+          page: "Featured",
+          book: book
+        });
+      })
     }
   });
-  app.post('/account', function(req, res) {
-    profileCollection.insertOne({
-      email: req.body.email,
-      fullname: req.body.fullname,
-      gender: req.body.gender,
-      age_range: req.body.age,
-      genre1: req.body.genre1, 
-      genre2: req.body.genre2,
-      genre3: req.body.genre3
-    })
+  app.get('/browse/:genre', function(req, res){
+    var genre = req.params.genre;
+    if (genre === "youngadult"){
+      genreSearch = "young adult";
+    } else if (genre === "sciencefiction") {
+      genreSearch = "science fiction";
+    } else if (genre === "classics") {
+      genreSearch = genre;
+    } else if (genre === "fantasy") {
+      genreSearch = genre;
+    } else if (genre === "clear") {
+      genreSearch = '';
+      bookSearch = '';
+    }
     res.redirect('/browse')
   })
+  
+  // app.get('/wishlist', function(req, res){
+  //   res.render('wishlist', {
+  //     title: "My Wishlist",
+  //     breadcrumb: "My Wishlist",
+  //     page: "Wishlist"
+  //   });
+  // });
 
   app.get('/contact', function(req, res){
     res.render('contact', {
@@ -208,73 +274,6 @@ client.connect(err => {
   //   console.log('Data received:\n' + JSON.stringify(req.body))
   //   return res.redirect('/home'); 
   // })
-
-  var genreSearch = '';
-  app.get('/browse', function(req, res){
-    //TODO: add if statement for account holders
-    if (bookSearch != '') {
-      bookCollection.find({$text: {$search: bookSearch}}).limit(12).toArray()
-      .then(book => {
-        res.render('featured', {
-          title: "Featured Books",
-          header: "Welcome " + User,
-          breadcrumb: "Featured Books",
-          page: "Featured",
-          book: book
-        });
-      })
-      .catch(err)
-    } else if (genreSearch != '') {
-      bookCollection.aggregate([
-        { $match : { $text: {$search: genreSearch}}},
-        { $sample: {size: 12}}
-      ]).toArray()
-      .then(book => {
-        res.render('featured', {
-          title: "Featured Books",
-          header: "Welcome " + User,
-          breadcrumb: "Featured Books",
-          page: "Featured",
-          book: book
-        });
-      })
-      .catch(err)
-    } else {
-      bookCollection.find({}).limit(12).toArray()
-      .then(book => {
-        res.render('featured', {
-          title: "Featured Books",
-          header: "Welcome " + User,
-          breadcrumb: "Featured Books",
-          page: "Featured",
-          book: book
-        });
-      })
-      .catch(err)
-    }
-    
-  });
-  app.get('/browse/:genre', function(req, res){
-    var genre = req.params.genre;
-    if (genre === "youngadult"){
-      genreSearch = "young adult";
-    } else if (genre === "sciencefiction") {
-      genreSearch = "science fiction";
-    } else if (genre === "classics") {
-      genreSearch = genre;
-    } else if (genre === "fantasy") {
-      genreSearch = genre;
-    }
-    res.redirect('/browse')
-  })
-  
-  // app.get('/wishlist', function(req, res){
-  //   res.render('wishlist', {
-  //     title: "My Wishlist",
-  //     breadcrumb: "My Wishlist",
-  //     page: "Wishlist"
-  //   });
-  // });
   
   app.use(function(req, res){
     res.status(404);
