@@ -25,7 +25,7 @@ html.no-js(lang='')
                 .panel.panel-default
                   #headingOne.panel-heading(role='tab')
                     h4.panel-title
-                      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='false', aria-controls='collapseOne')
                         i.fa.fa-building
                         span My personal information
                   #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
@@ -34,7 +34,7 @@ html.no-js(lang='')
                         h1.heading-title Your personal information
                         p.coupon-text Please be sure to update your personal information if it has changed.
                         p.required *Required field
-                        form(action='#')
+                        form(action='/account', method='post')
                           .form-row
                             label
                               span.required *
@@ -42,22 +42,22 @@ html.no-js(lang='')
                             .radio-inline
                               label.top
                                 span.checked
-                                  input(type='radio')
+                                  input(type='radio' name='gender' value='Male')
                                 | 																Male
                             .radio-inline
                               label.top
                                 span.checked
-                                  input(type='radio')
+                                  input(type='radio' name='gender' value='Female')
                                 | 																Female
                           p.form-row
-                            input(type='text', placeholder='Your Full Name *')
+                            input(type='text', placeholder='Your Full Name *' name='fullname' required='')
                           p.form-row
-                            input(type='text', placeholder='E-mail address')
+                            input(type='text', placeholder='E-mail address' name='email' required='')
                           .country-select.shop-select
                             label Which age range do you belong to?
                             .row
                               .col-xs-4
-                                select
+                                select(name='age')
                                   option 11 or below
                                   option 12 - 17
                                   option 18 - 24
@@ -67,8 +67,7 @@ html.no-js(lang='')
                             label Choose your top three favorite genres. 
                             .row
                               .col-xs-4
-                                select
-                                  option Art
+                                select(name='genre1')
                                   option Business
                                   option Children's
                                   option Classics
@@ -82,17 +81,15 @@ html.no-js(lang='')
                                   option Nonfiction
                                   option Psychology
                                   option Romance
-                                  option Science
                                   option Science Fiction
                                   option Sports
                                   option Thriller
                                   option Travel
                                   option Young Adult
                               .col-xs-4
-                                select
-                                  option Business
-                                  option Art
+                                select(name='genre2')
                                   option Children's
+                                  option Business
                                   option Classics
                                   option Comics
                                   option Fantasy
@@ -104,16 +101,14 @@ html.no-js(lang='')
                                   option Nonfiction
                                   option Psychology
                                   option Romance
-                                  option Science
                                   option Science Fiction
                                   option Sports
                                   option Thriller
                                   option Travel
                                   option Young Adult
                               .col-xs-4
-                                select
+                                select(name='genre3')
                                   option Nonfiction
-                                  option Art
                                   option Business
                                   option Children's
                                   option Classics
@@ -126,24 +121,20 @@ html.no-js(lang='')
                                   option Mystery
                                   option Psychology
                                   option Romance
-                                  option Science
                                   option Science Fiction
                                   option Sports
                                   option Thriller
                                   option Travel
                                   option Young Adult
-                          div
-                            label Reset Password?
-                            p.form-row
-                              input(type='text', placeholder='Current Password')
-                            p.form-row
-                              input(type='text', placeholder='New Password')
-                            p.form-row
-                              input(type='text', placeholder='Confirmation')
-                          a.btn.button.button-small(title='Save', href='shop.html')
-                            span
-                              | Save
-                              i.fa.fa-chevron-right
+                          .submit
+                            button#submitcreate.btn-default(name='submitcreate', type='submit')
+                              span
+                                |                                         SAVE
+                                i.fa.fa-chevron-right
+                          //- a.btn.button.button-small(title='Save', href='*')
+                          //-   span
+                          //-     | Save
+                          //-     i.fa.fa-chevron-right
             .col-xs-12.col-sm-6.col-lg-6
               .myaccount-link-list
                 .panel.panel-default
@@ -152,10 +143,31 @@ html.no-js(lang='')
                       a(href='wishlist.html')
                         i.fa.fa-heart
                         span My wishlists
+                //- .panel.panel-default
+                //-   #headingTwo.panel-heading(role='tab')
+                //-     h4.panel-title
+                //-       a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                //-         i.fa.fa-file-o
+                //-         span Reset Password
+                //-   #collapseTwo.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingTwo')
+                //-     .panel-body
+                //-       .coupon-info
+                //-           form(action='#')
+                //-             p.form-row
+                //-               input(type='text', placeholder='Current Password')
+                //-             p.form-row
+                //-               input(type='text', placeholder='New Password')
+                //-             p.form-row
+                //-               input(type='text', placeholder='Confirmation')
+                //-           .submit
+                //-             button#submitcreate.btn-default(name='submitcreate', type='submit')
+                //-               span
+                //-                 |                                         SAVE
+                //-                 i.fa.fa-chevron-right
         .row
           .col-md-12
             .create-account-button.pull-left
-              a.btn.button.button-small(href='index.html', title='Home')
+              a.btn.button.button-small(href='/home', title='Home')
                 span
                   i.fa.fa-chevron-left
                   | 									  Home
