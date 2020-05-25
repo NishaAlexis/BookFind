@@ -51,14 +51,14 @@ html.no-js(lang='')
                     .seller-img
                       img(src="https://images.gr-assets.com/books/1447303603l/2767052.jpg", alt='')
                     .seller-details
-                      a(href='/book')
+                      a(href='/book/' + "The Hunger Games")
                         h5 The Hunger Games
                       h5 Suzanne Collins
                   .single-seller
                     .seller-img
                       img(src="https://images.gr-assets.com/books/1255614970l/2.jpg", alt='')
                     .seller-details
-                      a(href='/book')
+                      a(href='/book/' + "Harry Potter and the Order of the Phoenix")
                         h5 Harry Potter and the Order of the Phoenix
                       h5 J.K. Rowling
           .col-md-9.col-sm-9.col-xs-12
@@ -85,7 +85,7 @@ html.no-js(lang='')
                             img(alt='', src=book[0].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[0].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -99,7 +99,7 @@ html.no-js(lang='')
                             img(alt='', src=book[1].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[1].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -113,7 +113,7 @@ html.no-js(lang='')
                             img(alt='', src=book[2].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[2].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -127,7 +127,7 @@ html.no-js(lang='')
                             img(alt='', src=book[3].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[3].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -141,7 +141,7 @@ html.no-js(lang='')
                             img(alt='', src=book[4].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[4].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -155,7 +155,7 @@ html.no-js(lang='')
                             img(alt='', src=book[5].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[5].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -169,7 +169,7 @@ html.no-js(lang='')
                             img(alt='', src=book[6].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[6].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -183,7 +183,7 @@ html.no-js(lang='')
                             img(alt='', src=book[7].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[7].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -197,7 +197,7 @@ html.no-js(lang='')
                             img(alt='', src=book[8].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[8].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -211,7 +211,7 @@ html.no-js(lang='')
                             img(alt='', src=book[9].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[9].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -225,7 +225,7 @@ html.no-js(lang='')
                             img(alt='', src=book[10].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[10].title, title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -239,7 +239,7 @@ html.no-js(lang='')
                             img(alt='', src=book[11].image_url)
                           .product-description
                             .functional-buttons
-                              a(href='#', title='Add to Wishlist')
+                              a(href='/wishlist/' + book[11].title title='Add to Wishlist')
                                 i.fa.fa-heart-o
                               //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                               //-   i.fa.fa-compress
@@ -259,6 +259,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[0].title, title='') #{book[0].title}
                           p
                             | #{book[0].description}
+                          a.wish-btn(href='/wishlist/' + book[0].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                           //- .availability
                           //-   span In stock
                           //-   span
@@ -274,6 +277,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[1].title, title='') #{book[1].title}
                           p
                             | #{book[1].description}
+                          a.wish-btn(href='/wishlist/' + book[1].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -285,6 +291,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[2].title, title='') #{book[2].title}
                           p
                             | #{book[2].description}
+                          a.wish-btn(href='/wishlist/' + book[2].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -296,6 +305,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[3].title, title='') #{book[3].title}
                           p
                             | #{book[3].description}
+                          a.wish-btn(href='/wishlist/' + book[3].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -307,6 +319,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[4].title, title='') #{book[4].title}
                           p
                             | #{book[4].description}
+                          a.wish-btn(href='/wishlist/' + book[4].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -318,6 +333,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[5].title, title='') #{book[5].title}
                           p
                             | #{book[5].description}
+                          a.wish-btn(href='/wishlist/' + book[5].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                           //- .availability
                           //-   span In stock
                           //-   span
@@ -333,6 +351,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[6].title, title='') #{book[6].title}
                           p
                             | #{book[6].description}
+                          a.wish-btn(href='/wishlist/' + book[6].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -344,6 +365,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[7].title, title='') #{book[7].title}
                           p
                             | #{book[7].description}
+                          a.wish-btn(href='/wishlist/' + book[7].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -355,6 +379,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[8].title, title='') #{book[8].title}
                           p
                             | #{book[8].description}
+                          a.wish-btn(href='/wishlist/' + book[8].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -366,6 +393,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[9].title, title='') #{book[9].title}
                           p
                             | #{book[9].description}
+                          a.wish-btn(href='/wishlist/' + book[9].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -377,6 +407,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[10].title, title='') #{book[10].title}
                           p
                             | #{book[10].description}
+                          a.wish-btn(href='/wishlist/' + book[10].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
                     .single-shop-product
                       .col-xs-12.col-sm-5.col-md-4
                         .left-item
@@ -388,6 +421,9 @@ html.no-js(lang='')
                             a(href='/book/' +  book[11].title, title='') #{book[11].title}
                           p
                             | #{book[11].description}
+                          a.wish-btn(href='/wishlist/' + book[11].title)
+                            i.fa.fa-heart-o
+                            |                                     ADD TO WISHLIST
     // Shop Area End
     // Footer Area Start
     include includes/footer.pug

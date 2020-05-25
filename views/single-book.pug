@@ -28,7 +28,7 @@ html.no-js(lang='')
               h1= book[0].title
               h4= book[0].author
               .add-to-wishlist
-                a.wish-btn(href='cart.html')
+                a.wish-btn(href='/wishlist/' + book[0].title)
                   i.fa.fa-heart-o
                   |                                     ADD TO WISHLIST
               .single-product-categories
@@ -60,7 +60,7 @@ html.no-js(lang='')
                     img(alt='', src=book[0].recoms_info[0].image_url)
                   .product-description
                     .functional-buttons
-                      a(href='#', title='Add to Wishlist')
+                      a(href='/wishlist/' + book[0].recoms_info[0].title, title='Add to Wishlist')
                         i.fa.fa-heart-o
                       //- a(href='#', title='Quick View')
                       //-   i.fa.fa-compress
@@ -73,7 +73,7 @@ html.no-js(lang='')
                     img(alt='', src=book[0].recoms_info[1].image_url)
                   .product-description
                     .functional-buttons
-                      a(href='#', title='Add to Wishlist')
+                      a(href='/wishlist/' + book[0].recoms_info[1].title, title='Add to Wishlist')
                         i.fa.fa-heart-o
                       //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                       //-   i.fa.fa-compress
@@ -86,7 +86,7 @@ html.no-js(lang='')
                     img(alt='', src=book[0].recoms_info[2].image_url)
                   .product-description
                     .functional-buttons
-                      a(href='#', title='Add to Wishlist')
+                      a(href='/wishlist/' + book[0].recoms_info[2].title, title='Add to Wishlist')
                         i.fa.fa-heart-o
                       //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                       //-   i.fa.fa-compress
@@ -99,7 +99,7 @@ html.no-js(lang='')
                     img(alt='', src=book[0].recoms_info[3].image_url)
                   .product-description
                     .functional-buttons
-                      a(href='#', title='Add to Wishlist')
+                      a(href='/wishlist/' + book[0].recoms_info[3].title, title='Add to Wishlist')
                         i.fa.fa-heart-o
                       //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                       //-   i.fa.fa-compress
@@ -112,7 +112,7 @@ html.no-js(lang='')
                     img(alt='', src=book[0].recoms_info[4].image_url)
                   .product-description
                     .functional-buttons
-                      a(href='#', title='Add to Wishlist')
+                      a(href='/wishlist/' + book[0].recoms_info[4].title, title='Add to Wishlist')
                         i.fa.fa-heart-o
                       //- a(href='#', title='Quick view', data-toggle='modal', data-target='#productModal')
                       //-   i.fa.fa-compress

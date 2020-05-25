@@ -21,10 +21,10 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://admin:admin8616@cluster0-okijj.gcp.mongodb.net/test?retryWrites=true&w=majority";
-const store = new MongoDBStore({
-  uri: url,
-  collection: 'users'
-});
+// const store = new MongoDBStore({
+//   uri: url,
+//   collection: 'users'
+// });
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   console.log('Connected to Database');
@@ -32,6 +32,7 @@ client.connect(err => {
   const bookCollection = db.collection('book');
   const userCollection = db.collection('user');
   const profileCollection = db.collection('account');
+  const wishCollection = db.collection('wishlist');
   // ========================
   // Middlewares
   // ========================
@@ -117,17 +118,9 @@ client.connect(err => {
     res.redirect('/browse')
   })
 
-  // function capital_letter(str) {
-  //   str = str.split(" ");
-  //   for (var i = 0, x = str.length; i < x; i++) {
-  //       str[i] = str[i][0].toUpperCase() + str[i].substr(1);
-  //   }
-  //   return str.join(" ");
-  // }
-
   var bookSearch = '';
   app.get('/home', function(req, res){
-    bookCollection.find({}).limit(12).toArray()
+    bookCollection.find().limit(12).toArray()
       .then(book => {
         res.render('index', {
           title: "Home",
@@ -145,6 +138,7 @@ client.connect(err => {
 
   var bookTitle = '';
   app.get('/book', (req, res) => {
+    //TODO: add if statement for account holders
     bookCollection.aggregate([
       { $match : { title : bookTitle }},
       { $lookup: {
@@ -238,13 +232,30 @@ client.connect(err => {
     res.redirect('/browse')
   })
   
-  // app.get('/wishlist', function(req, res){
-  //   res.render('wishlist', {
-  //     title: "My Wishlist",
-  //     breadcrumb: "My Wishlist",
-  //     page: "Wishlist"
-  //   });
-  // });
+
+  app.get('/wishlist', function(req, res){
+    if (User != "") {
+      res.render('wishlist', {
+        title: "My Wishlist",
+        header: "Welcome " + User,
+        breadcrumb: "My Wishlist",
+        page: "Wishlist"
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  app.get('/wishlist/:title', function(req, res){
+    var query = req.params.title;
+    console.log(query);
+    wishCollection.insertOne({
+      user: User,
+      wish: [query]
+    })
+    res.redirect('back')
+    //bookTitle = query;
+    //res.redirect('/book');
+  });
 
   app.get('/contact', function(req, res){
     res.render('contact', {
