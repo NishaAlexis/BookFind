@@ -1,0 +1,222 @@
+doctype html
+html.no-js(lang='')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+    title #{title} || BookFind
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // favicon
+    link(rel='shortcut icon', type='image/x-icon', href='img/favicon.ico')
+    // Place favicon.ico in the root directory
+    // Google Fonts
+    link(href='https://fonts.googleapis.com/css?family=Poppins:400,700,600,500,300', rel='stylesheet', type='text/css')
+    // all css here
+    // bootstrap v3.3.6 css
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // animate css
+    link(rel='stylesheet', href='css/animate.css')
+    // jquery-ui.min css
+    link(rel='stylesheet', href='css/jquery-ui.min.css')
+    // meanmenu css
+    link(rel='stylesheet', href='css/meanmenu.min.css')
+    // Font-Awesome css
+    link(rel='stylesheet', href='css/font-awesome.min.css')
+    // pe-icon-7-stroke css
+    link(rel='stylesheet', href='css/pe-icon-7-stroke.css')
+    // Flaticon css
+    link(rel='stylesheet', href='css/flaticon.css')
+    // venobox css
+    link(rel='stylesheet', href='venobox/venobox.css', type='text/css', media='screen')
+    // nivo slider css
+    link(rel='stylesheet', href='lib/css/nivo-slider.css', type='text/css')
+    link(rel='stylesheet', href='lib/css/preview.css', type='text/css', media='screen')
+    // owl.carousel css
+    link(rel='stylesheet', href='css/owl.carousel.css')
+    // style css
+    link(rel='stylesheet', href='style.css')
+    // responsive css
+    link(rel='stylesheet', href='css/responsive.css')
+    // modernizr css
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+
+    link(rel='stylesheet', href='multi-form.css')
+  body
+    // Header Area Start
+    include includes/header.pug
+    // Header Area End
+    // Mobile Menu Start
+    include includes/mobile-menu.pug
+    // Mobile Menu End
+    // Breadcrumbs Area Start
+    include includes/breadcrumbs.pug
+    // Breadcrumbs Area Start
+    // My Account Area Start
+    .my-account-area.section-padding
+      .container
+        .section-title2
+          h2 Account Profile
+        .row
+          #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+            .panel-body
+              .coupon-info
+                h1.heading-title Your personal preferences
+                // MultiStep Form
+                form(action='/like', method='post')
+                  .form_wrapper
+                    fieldset.msf_hide
+                      h2 Recommendation 1
+                      .single-banner
+                        .product-wrapper
+                          img(alt='', src=recom[0].image_url)
+                        .banner-bottom.text-center
+                          p #{recom[0].title}
+                          p
+                            | #{recom[0].description}
+                      input(type='radio', name='choice0', value=recom[0].id + ' like', checked='')
+                      | Like
+                      br
+                      input(type='radio', name='choice0', value=recom[0].id + ' dislike')
+                      |  Dislike
+                      br
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
+                      input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      .msf_bullet_o
+                      .msf_line
+                    fieldset.msf_hide
+                      h2 Recommendation 2                    
+                      .single-banner
+                        .product-wrapper
+                          img(alt='', src=recom[1].image_url)
+                        .banner-bottom.text-center
+                          p #{recom[1].title}
+                          p
+                            | #{recom[1].description}
+                      input(type='radio', name='choice1', value=recom[1].id + ' like', checked='')
+                      |  Like
+                      br
+                      input(type='radio', name='choice1', value=recom[1].id + ' dislike')
+                      |  Dislike
+                      br
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
+                      input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      .msf_bullet_o
+                      .msf_line
+                    fieldset.msf_hide
+                      h2 Recommendation 3
+                      .single-banner
+                        .product-wrapper
+                          img(alt='', src=recom[2].image_url)
+                        .banner-bottom.text-center
+                          p #{recom[2].title}
+                          p
+                            | #{recom[2].description}
+                      input(type='radio', name='choice2', value=recom[2].id + ' like', checked='')
+                      |  Like
+                      br
+                      input(type='radio', name='choice2', value=recom[2].id + ' dislike')
+                      |  Dislike
+                      br
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
+                      input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      .msf_bullet_o
+                      .msf_line
+                    fieldset.msf_hide
+                      h2 Recommendation 4                    
+                      .single-banner
+                        .product-wrapper
+                          img(alt='', src=recom[3].image_url)
+                        .banner-bottom.text-center
+                          p #{recom[3].title}
+                          p
+                            | #{recom[3].description}
+                      input(type='radio', name='choice3', value=recom[3].id + ' like', checked='')
+                      |  Like
+                      br
+                      input(type='radio', name='choice3', value=recom[3].id + ' dislike')
+                      |  Dislike
+                      br
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
+                      input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      .msf_bullet_o
+                      .msf_line
+                    fieldset.msf_hide
+                      h2 Recommendation 5                 
+                      .single-banner
+                        .product-wrapper
+                          img(alt='', src=recom[4].image_url)
+                        .banner-bottom.text-center
+                          p #{recom[4].title}
+                          p
+                            | #{recom[4].description}
+                      input(type='radio', name='choice4', value=recom[4].id + ' like', checked='')
+                      |  Like
+                      br
+                      input(type='radio', name='choice4', value=recom[4].id + ' dislike')
+                      |  Dislike
+                      br
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
+                      input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      input(type='submit', value='Submit Now!', onclick='')
+                      .msf_bullet_o
+                      .msf_line
+    // My Account Area End
+    footer
+      .footer-top-area
+        .container
+          .row
+            .col-md-3.col-sm-8
+              .footer-left
+                a(href='/home')
+                  img(src='img/logo-1.png', alt='')
+                ul.footer-contact
+                  li
+                    i.flaticon-location
+                    |                               UP Cebu, Lahug, Cebu City
+                  li
+                    i.flaticon-web
+                    |                               info@bookfind.com
+      .footer-bottom
+        .container
+          .row
+            .col-md-6
+              .footer-bottom-left.pull-left
+                p
+                  | Copyright © 2020 
+                  span
+                    a(href='/home') BookFind
+                  | . All Right Reserved.
+    // Footer Area End
+    // all js here
+    // jquery latest version
+    script(src='multi-form.js')
+    script(src='js/vendor/jquery-1.12.0.min.js')
+    // bootstrap js
+    script(src='js/bootstrap.min.js')
+    // owl.carousel js
+    script(src='js/owl.carousel.min.js')
+    // jquery-ui js
+    script(src='js/jquery-ui.min.js')
+    // jquery Counterup js
+    script(src='js/jquery.counterup.min.js')
+    script(src='js/waypoints.min.js')
+    // jquery countdown js
+    script(src='js/jquery.countdown.min.js')
+    // jquery countdown js
+    script(type='text/javascript', src='venobox/venobox.min.js')
+    // jquery Meanmenu js
+    script(src='js/jquery.meanmenu.js')
+    // wow js
+    script(src='js/wow.min.js')
+    script.
+      new WOW().init();
+    // scrollUp JS
+    script(src='js/jquery.scrollUp.min.js')
+    // plugins js
+    script(src='js/plugins.js')
+    // Nivo slider js
+    script(src='lib/js/jquery.nivo.slider.js', type='text/javascript')
+    script(src='lib/home.js', type='text/javascript')
+    // main js
+    script(src='js/main.js')
+    
