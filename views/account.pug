@@ -32,12 +32,12 @@ html.no-js(lang='')
                     .panel-body
                       .coupon-info
                         h1.heading-title Your personal information
-                        p.coupon-text Please be sure to update your personal information if it has changed.
-                        p.required *Required field
+                        p.coupon-text Please be sure to fill up your personal information.
+                        //- p.required *Required field
                         form(action='/account', method='post')
                           .form-row
                             label
-                              span.required *
+                              span.required 
                               | Gender
                             .radio-inline
                               label.top
@@ -68,7 +68,7 @@ html.no-js(lang='')
                             .row
                               .col-xs-4
                                 select(name='genre1')
-                                  option Business
+                                  option Adventure
                                   option Children's
                                   option Classics
                                   option Comics
@@ -77,6 +77,7 @@ html.no-js(lang='')
                                   option Historical Fiction
                                   option Historical
                                   option Horror
+                                  option Humor
                                   option Mystery
                                   option Nonfiction
                                   option Psychology
@@ -89,7 +90,7 @@ html.no-js(lang='')
                               .col-xs-4
                                 select(name='genre2')
                                   option Children's
-                                  option Business
+                                  option Adventure
                                   option Classics
                                   option Comics
                                   option Fantasy
@@ -97,6 +98,7 @@ html.no-js(lang='')
                                   option Historical Fiction
                                   option Historical
                                   option Horror
+                                  option Humor
                                   option Mystery
                                   option Nonfiction
                                   option Psychology
@@ -108,8 +110,8 @@ html.no-js(lang='')
                                   option Young Adult
                               .col-xs-4
                                 select(name='genre3')
-                                  option Nonfiction
-                                  option Business
+                                  option Science Fiction
+                                  option Adventure
                                   option Children's
                                   option Classics
                                   option Comics
@@ -118,10 +120,11 @@ html.no-js(lang='')
                                   option Historical Fiction
                                   option Historical
                                   option Horror
+                                  option Humor
                                   option Mystery
+                                  option Nonfiction
                                   option Psychology
                                   option Romance
-                                  option Science Fiction
                                   option Sports
                                   option Thriller
                                   option Travel
@@ -140,30 +143,26 @@ html.no-js(lang='')
                 .panel.panel-default
                   .panel-heading
                     h4.panel-title
-                      a(href='wishlist.html')
+                      a(href='/wishlist')
                         i.fa.fa-heart
                         span My wishlists
-                //- .panel.panel-default
-                //-   #headingTwo.panel-heading(role='tab')
-                //-     h4.panel-title
-                //-       a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
-                //-         i.fa.fa-file-o
-                //-         span Reset Password
-                //-   #collapseTwo.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingTwo')
-                //-     .panel-body
-                //-       .coupon-info
-                //-           form(action='#')
-                //-             p.form-row
-                //-               input(type='text', placeholder='Current Password')
-                //-             p.form-row
-                //-               input(type='text', placeholder='New Password')
-                //-             p.form-row
-                //-               input(type='text', placeholder='Confirmation')
-                //-           .submit
-                //-             button#submitcreate.btn-default(name='submitcreate', type='submit')
-                //-               span
-                //-                 |                                         SAVE
-                //-                 i.fa.fa-chevron-right
+                .panel.panel-default
+                  #headingTwo.panel-heading(role='tab')
+                    h4.panel-title
+                      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+                        i.fa.fa-file-o
+                        span Account Info
+                  #collapseTwo.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingTwo')
+                    .panel-body
+                      .coupon-info
+                          h4 Full Name : #{profile[0].profileInfo[0].fullname}
+                          p Email : #{profile[0].profileInfo[0].email}
+                          p Gender : #{profile[0].profileInfo[0].gender}
+                          p Age Range : #{profile[0].profileInfo[0].age_range}
+                          h4 Preferred Genres: 
+                          p #{profile[0].profileInfo[0].genre1}
+                          p #{profile[0].profileInfo[0].genre2}
+                          p #{profile[0].profileInfo[0].genre3}                              
         .row
           .col-md-12
             .create-account-button.pull-left

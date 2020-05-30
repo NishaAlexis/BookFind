@@ -40,47 +40,146 @@ html.no-js(lang='')
                 table.wish-list-table
                   thead
                     tr
-                      th.t-product-name Products
-                      th.product-details-comment Product Details & Comment
+                      th.t-product-name Cover
+                      th.product-details-comment Title & Author
                       th.w-product-remove Remove
                   tbody
                     tr
                       td.product-image
-                        a(href='#')
-                          img(src='img/wishlist/1.jpg', alt='')
+                        a(href='/book/' +  wish[0].wishInfo[0].title)
+                          img(src=wish[0].wishInfo[0].image_url, alt='')
                       td.product-details
-                        h4 People of the book
+                        h4 #{wish[0].wishInfo[0].title}
                         p
-                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                          | #{wish[0].wishInfo[0].author}
                       td.product-remove
-                        a(href='#')
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[0].title)
                           i.flaticon-delete
                     tr
                       td.product-image
-                        a(href='#')
-                          img(src='img/wishlist/2.jpg', alt='')
+                        a(href='/book/' +  wish[0].wishInfo[1].title)
+                          img(src=wish[0].wishInfo[1].image_url, alt='')
                       td.product-details
-                        h4 The historian
+                        h4 #{wish[0].wishInfo[1].title}
                         p
-                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                          | #{wish[0].wishInfo[1].author}
                       td.product-remove
-                        a(href='#')
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[1].title)
                           i.flaticon-delete
                     tr
                       td.product-image
-                        a(href='#')
-                          img(src='img/wishlist/3.jpg', alt='')
+                        a(href='/book/' +  wish[0].wishInfo[2].title)
+                          img(src=wish[0].wishInfo[2].image_url, alt='')
                       td.product-details
-                        h4 Consequences
+                        h4 #{wish[0].wishInfo[2].title}
                         p
-                          | Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                          | #{wish[0].wishInfo[2].author}
                       td.product-remove
-                        a(href='#')
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[2].title)
+                          i.flaticon-delete
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[3].title)
+                          img(src=wish[0].wishInfo[3].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[3].title}
+                        p
+                          | #{wish[0].wishInfo[3].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[3].title)
+                          i.flaticon-delete
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[4].title)
+                          img(src=wish[0].wishInfo[4].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[4].title}
+                        p
+                          | #{wish[0].wishInfo[4].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[4].title)
                           i.fa.fa-trash-o
-                a.btn.button.button-small(title='Save', href='shop.html')
-                  span
-                    | Save
-                    i.fa.fa-chevron-right
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[5].title)
+                          img(src=wish[0].wishInfo[5].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[5].title}
+                        p
+                          | #{wish[0].wishInfo[5].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[5].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[6].title)
+                          img(src=wish[0].wishInfo[6].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[6].title}
+                        p
+                          | #{wish[0].wishInfo[6].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[6].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[7].title)
+                          img(src=wish[0].wishInfo[7].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[7].title}
+                        p
+                          | #{wish[0].wishInfo[7].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[7].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[8].title)
+                          img(src=wish[0].wishInfo[8].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[8].title}
+                        p
+                          | #{wish[0].wishInfo[8].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[8].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[9].title)
+                          img(src=wish[0].wishInfo[9].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[9].title}
+                        p
+                          | #{wish[0].wishInfo[9].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[9].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[10].title)
+                          img(src=wish[0].wishInfo[10].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[10].title}
+                        p
+                          | #{wish[0].wishInfo[10].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[10].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[11].title)
+                          img(src=wish[0].wishInfo[11].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[11].title}
+                        p
+                          | #{wish[0].wishInfo[11].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[11].title)
+                          i.fa.fa-trash-o
+                //- a.btn.button.button-small(title='Save', href='shop.html')
+                //-   span
+                //-     | Save
+                //-     i.fa.fa-chevron-right
             .wishlist-bottom-link
               a.wishlist-single-link(href='/browse')
                 i.fa.fa-angle-double-left
