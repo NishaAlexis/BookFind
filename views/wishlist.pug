@@ -176,6 +176,39 @@ html.no-js(lang='')
                       td.product-remove
                         a(href='/wishlist/remove/' +  wish[0].wishInfo[11].title)
                           i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[12].title)
+                          img(src=wish[0].wishInfo[12].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[12].title}
+                        p
+                          | #{wish[0].wishInfo[12].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[12].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[13].title)
+                          img(src=wish[0].wishInfo[13].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[13].title}
+                        p
+                          | #{wish[0].wishInfo[13].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[13].title)
+                          i.fa.fa-trash-o
+                    tr
+                      td.product-image
+                        a(href='/book/' +  wish[0].wishInfo[14].title)
+                          img(src=wish[0].wishInfo[14].image_url, alt='')
+                      td.product-details
+                        h4 #{wish[0].wishInfo[14].title}
+                        p
+                          | #{wish[0].wishInfo[14].author}
+                      td.product-remove
+                        a(href='/wishlist/remove/' +  wish[0].wishInfo[14].title)
+                          i.fa.fa-trash-o
                 //- a.btn.button.button-small(title='Save', href='shop.html')
                 //-   span
                 //-     | Save

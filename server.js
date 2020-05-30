@@ -244,7 +244,7 @@ client.connect(err => {
           { projection: {score: { $meta: "textScore"}},
             sort: {score: {$meta : "textScore"}}
           }
-        ).limit(12).toArray()
+        ).limit(15).toArray()
         .then(book => {
           res.render('featured', {
             title: "Featured Books",
@@ -257,7 +257,7 @@ client.connect(err => {
       } else if (genreSearch != '') {
         bookCollection.aggregate([
           { $match : { $text: {$search: genreSearch}}},
-          { $sample: {size: 12}}
+          { $sample: {size: 15}}
         ]).toArray()
         .then(book => {
           res.render('featured', {
@@ -289,7 +289,7 @@ client.connect(err => {
               { projection: {score: { $meta: "textScore"}},
                 sort: {score: {$meta : "textScore"}}
               }
-            ).limit(12).toArray()
+            ).limit(15).toArray()
               .then(book => {
                 // console.log(book);
                 res.render('featured', {
@@ -406,7 +406,7 @@ client.connect(err => {
       ]).toArray()
       .then(wish => {
         var empty = "Empty";
-        for (var i = 0; i < 12; i++){
+        for (var i = 0; i < 15; i++){
           if (wish[0].wishInfo[i] == null){
             wish[0].wishInfo.push(
               {title : empty,
@@ -431,7 +431,6 @@ client.connect(err => {
   });
   app.get('/wishlist/:title', function(req, res){
     var query = req.params.title;
-    console.log(query);
     var checker;
     wishCollection.find({username : User}).toArray()
       .then(user => {
@@ -462,7 +461,6 @@ client.connect(err => {
   });
   app.get('/wishlist/remove/:title', function(req, res){
     var query = req.params.title;
-    console.log(query);
     wishCollection.find({username : User}).toArray()
       .then(deleteWish => {
         console.log("Removing from wishlist");
