@@ -41,7 +41,7 @@ client.connect(err => {
   //   } 
   // }));
 
-  var User = "Testing 123";
+  var User = "";
   app.get('/', function(req, res){
     res.render('register', {
       title: "Create an Account",
@@ -171,7 +171,7 @@ client.connect(err => {
           )
         }
       });
-    res.redirect('/browse')
+    res.redirect('/like')
   })
 
   var bookSearch = '';
@@ -276,22 +276,33 @@ client.connect(err => {
             localField: 'email',
             foreignField: 'email',
             as: 'profileInfo'
+          }},
+          { $lookup : {
+            from: 'wouldLike',
+            localField: 'user',
+            foreignField: 'username',
+            as: 'preferences'
+          }},
+          { $lookup: {
+            from: 'book',
+            localField: 'preferences.like',
+            foreignField: 'id',
+            as: 'preferInfo'
           }}
         ]).toArray()
           .then(profile => {
-            // female = romance, young adult, mystery, humor
-            // male = adventure, humor, horror, science fiction
-            // book.id == likes[0]
-
-            var genres = profile[0].profileInfo[0].genre1 + " " + profile[0].profileInfo[0].genre2 + " " + profile[0].profileInfo[0].genre3
+            //console.log(profile[0]);
+            //console.log(profile[0].preferInfo[0]);
+            var genres = profile[0].preferInfo[0].content + " " + profile[0].preferInfo[1].content + " " + profile[0].preferInfo[2].content;
+            console.log(genres)
+            
             bookCollection.find(
               { $text: { $search : genres}},
               { projection: {score: { $meta: "textScore"}},
                 sort: {score: {$meta : "textScore"}}
               }
-            ).limit(15).toArray()
+            ).limit(20).toArray()
               .then(book => {
-                // console.log(book);
                 res.render('featured', {
                   title: "Featured Books",
                   header: "Welcome " + User,
@@ -376,11 +387,11 @@ client.connect(err => {
 
     var likes = [];
     var dislikes = [];
-    (strArr0[2] === 'like') ? likes.push(strArr0[0]) : dislikes.push(strArr0[0]);
-    (strArr1[2] === 'like') ? likes.push(strArr1[0]) : dislikes.push(strArr1[0]);
-    (strArr2[2] === 'like') ? likes.push(strArr2[0]) : dislikes.push(strArr2[0]);
-    (strArr3[2] === 'like') ? likes.push(strArr3[0]) : dislikes.push(strArr3[0]);
-    (strArr4[2] === 'like') ? likes.push(strArr4[0]) : dislikes.push(strArr4[0]);
+    (strArr0[2] === 'like') ? likes.push(parseInt(strArr0[0])) : dislikes.push(parseInt(strArr0[0]));
+    (strArr1[2] === 'like') ? likes.push(parseInt(strArr1[0])) : dislikes.push(parseInt(strArr1[0]));
+    (strArr2[2] === 'like') ? likes.push(parseInt(strArr2[0])) : dislikes.push(parseInt(strArr2[0]));
+    (strArr3[2] === 'like') ? likes.push(parseInt(strArr3[0])) : dislikes.push(parseInt(strArr3[0]));
+    (strArr4[2] === 'like') ? likes.push(parseInt(strArr4[0])) : dislikes.push(parseInt(strArr4[0]));
 
     console.log(likes)
     console.log(dislikes)
@@ -390,6 +401,7 @@ client.connect(err => {
       like: likes,
       dislike: dislikes
     })
+    res.redirect('/browse')
   })
 
 
