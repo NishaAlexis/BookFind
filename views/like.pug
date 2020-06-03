@@ -61,6 +61,7 @@ html.no-js(lang='')
             .panel-body
               .coupon-info
                 h1.heading-title Your personal preferences
+                h4 Please choose at least 2 out of the 5 possible recommendations
                 // MultiStep Form
                 form(action='/like', method='post')
                   .form_wrapper
@@ -79,8 +80,8 @@ html.no-js(lang='')
                       input(type='radio', name='choice0', value=recom[0].id + ' dislike')
                       |  Dislike
                       br
-                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       .msf_bullet_o
                       .msf_line
                     fieldset.msf_hide
@@ -117,8 +118,8 @@ html.no-js(lang='')
                       input(type='radio', name='choice2', value=recom[2].id + ' dislike')
                       |  Dislike
                       br
-                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       .msf_bullet_o
                       .msf_line
                     fieldset.msf_hide
@@ -136,8 +137,8 @@ html.no-js(lang='')
                       input(type='radio', name='choice3', value=recom[3].id + ' dislike')
                       |  Dislike
                       br
-                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       .msf_bullet_o
                       .msf_line
                     fieldset.msf_hide
@@ -155,8 +156,8 @@ html.no-js(lang='')
                       input(type='radio', name='choice4', value=recom[4].id + ' dislike')
                       |  Dislike
                       br
-                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       input(type='button', name='next', value='Next', onclick='msf_btn_next()')
+                      input(type='button', name='back', value='Back', onclick='msf_btn_back()')
                       input(type='submit', value='Submit Now!', onclick='')
                       .msf_bullet_o
                       .msf_line
@@ -175,7 +176,7 @@ html.no-js(lang='')
                     |                               UP Cebu, Lahug, Cebu City
                   li
                     i.flaticon-web
-                    |                               info@bookfind.com
+                    |                               nppadura1@up.edu.ph
       .footer-bottom
         .container
           .row

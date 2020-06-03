@@ -115,11 +115,11 @@ client.connect(err => {
 
           res.render('account', {
             title: "My Account",
-            header: "Welcome " + User,
+            header: User + "'s Wishlist",
             breadcrumb: "My Account",
             page: "Account",
             profile: profile
-          });
+          })
         });
     } else {
       res.redirect('/');
@@ -157,7 +157,7 @@ client.connect(err => {
           })         
         } else {
           console.log("Updating wishlist");
-          wishCollection.updateOne(
+          profileCollection.updateOne(
             { "username" : User},
             { $set: {
               email: req.body.email,
@@ -176,15 +176,26 @@ client.connect(err => {
 
   var bookSearch = '';
   app.get('/home', function(req, res){
-    bookCollection.find().limit(12).toArray()
-      .then(book => {
-        res.render('index', {
-          title: "Home",
-          header: "Welcome " + User,
-          book: book
-        });
-      })
-      .catch(err)
+    if (User != "") {
+      bookCollection.find().limit(12).toArray()
+        .then(book => {
+          res.render('index', {
+            title: "Home",
+            header: User + "'s Wishlist",
+            book: book
+          });
+        })
+        .catch(err)
+    } else {
+      bookCollection.find().limit(12).toArray()
+        .then(book => {
+          res.render('index', {
+            title: "Home",
+            book: book
+          });
+        })
+        .catch(err)
+    }
   });
   app.post('/home', function(req, res){
     var query = req.body.search;
@@ -214,7 +225,7 @@ client.connect(err => {
           // console.log(book[0].recoms_info[0].image_url)
           res.render('single-book', {
             title: "Book Details",
-            header: "Welcome " + User,
+            header: User + "'s Wishlist",
             breadcrumb: "Book Details",
             page: "Single Book",
             book: book
@@ -248,7 +259,7 @@ client.connect(err => {
         .then(book => {
           res.render('featured', {
             title: "Featured Books",
-            header: "Welcome " + User,
+            header: User + "'s Wishlist",
             breadcrumb: "Featured Books",
             page: "Featured " + bookSearch,
             book: book
@@ -262,7 +273,7 @@ client.connect(err => {
         .then(book => {
           res.render('featured', {
             title: "Featured Books",
-            header: "Welcome " + User,
+            header: User + "'s Wishlist",
             breadcrumb: "Featured Books",
             page: "Featured " + genreSearch,
             book: book
@@ -279,7 +290,7 @@ client.connect(err => {
           }},
           { $lookup : {
             from: 'wouldLike',
-            localField: 'user',
+            localField: 'username',
             foreignField: 'username',
             as: 'preferences'
           }},
@@ -293,7 +304,8 @@ client.connect(err => {
           .then(profile => {
             //console.log(profile[0]);
             //console.log(profile[0].preferInfo[0]);
-            var genres = profile[0].preferInfo[0].content + " " + profile[0].preferInfo[1].content + " " + profile[0].preferInfo[2].content;
+            // console.log(profile[0])
+            var genres = profile[0].preferInfo[0].content + " " + profile[0].preferInfo[1].content;
             console.log(genres)
             
             bookCollection.find(
@@ -301,11 +313,11 @@ client.connect(err => {
               { projection: {score: { $meta: "textScore"}},
                 sort: {score: {$meta : "textScore"}}
               }
-            ).limit(20).toArray()
+            ).limit(15).toArray()
               .then(book => {
                 res.render('featured', {
                   title: "Featured Books",
-                  header: "Welcome " + User,
+                  header: User + "'s Wishlist",
                   breadcrumb: "Featured Books",
                   page: "Featured",
                   book: book
@@ -335,41 +347,44 @@ client.connect(err => {
   })
 
   app.get('/like', function(req, res){
-    userCollection.aggregate([
-      { $match : {username : User}},
-      { $lookup: {
-        from: 'account',
-        localField: 'email',
-        foreignField: 'email',
-        as: 'profileInfo'
-      }}
-    ]).toArray()
-      .then(profile => {
-        // female = romance, young adult, mystery, humor
-        // male = adventure, humor, horror, science fiction
-        var gender = profile[0].profileInfo[0].gender;
-        var genres = profile[0].profileInfo[0].genre1 + " " + profile[0].profileInfo[0].genre2 + " " + profile[0].profileInfo[0].genre3
-        if (gender === "Male") {
-          genres = genres + " Adventure Humor Horror Science Fiction"
-        } else if (gender === "Female") {
-          genres = genres + " Romance Young Adult Mystery Humor"
-        }
-        bookCollection.find(
-          { $text: { $search : genres}},
-          { projection: {score: { $meta: "textScore"}},
-            sort: {score: {$meta : "textScore"}}
+    if (User != "") {
+      userCollection.aggregate([
+        { $match : {username : User}},
+        { $lookup: {
+          from: 'account',
+          localField: 'email',
+          foreignField: 'email',
+          as: 'profileInfo'
+        }}
+      ]).toArray()
+        .then(profile => {
+          // female = romance, young adult, mystery, humor
+          // male = adventure, humor, horror, science fiction
+          var gender = profile[0].profileInfo[0].gender;
+          var genres = profile[0].profileInfo[0].genre1 + " " + profile[0].profileInfo[0].genre2 + " " + profile[0].profileInfo[0].genre3
+          if (gender === "Male") {
+            genres = genres + " Adventure Humor Horror Science Fiction"
+          } else if (gender === "Female") {
+            genres = genres + " Romance Young Adult Mystery Humor"
           }
-        ).limit(5).toArray()
-          .then(recom => {
-            res.render('like', {
-              title: "Recommendations",
-              header: "Welcome " + User,
-              breadcrumb: "Would you like to read me?",
-              page: "Recommendations",
-              recom: recom
-            });  
-          })
-      })
+          bookCollection.find(
+            { $text: { $search : genres}},
+            { projection: {score: { $meta: "textScore"}},
+              sort: {score: {$meta : "textScore"}}
+            }
+          ).limit(5).toArray()
+            .then(recom => {
+              res.render('like', {
+                title: "Recommendations",
+                breadcrumb: "Would you like to read me?",
+                page: "Recommendations",
+                recom: recom
+              });  
+            })
+        })
+      } else {
+        res.redirect('/');
+      }
   });
   app.post('/like', function(req, res){
     var str0, str1, str2, str3, str4;
@@ -397,7 +412,7 @@ client.connect(err => {
     console.log(dislikes)
     
     likeCollection.insertOne({
-      user: User,
+      username: User,
       like: likes,
       dislike: dislikes
     })
@@ -431,12 +446,13 @@ client.connect(err => {
         }
         res.render('wishlist', {
           title: "My Wishlist",
-          header: "Welcome " + User,
+          header: User + "'s Wishlist",
           breadcrumb: "My Wishlist",
           page: "Wishlist",
           wish: wish
         });
       })
+      .catch(err)
     } else {
       res.redirect('/');
     }
@@ -487,12 +503,20 @@ client.connect(err => {
   });
 
   app.get('/contact', function(req, res){
-    res.render('contact', {
-      title: "Contact Us",
-      header: "Welcome " + User,
-      breadcrumb: "Contact Us",
-      page: "Contact"
-    });
+    if (User != "") {
+      res.render('contact', {
+        title: "Contact Us",
+        header: User + "'s Wishlist",
+        breadcrumb: "Contact Us",
+        page: "Contact"
+      });
+    } else {
+      res.render('contact', {
+        title: "Contact Us",
+        breadcrumb: "Contact Us",
+        page: "Contact"
+      });
+    }
   });
   // app.post('/contact', function(req, res){
   //   var name = req.body.username;
@@ -512,6 +536,11 @@ client.connect(err => {
   //   console.log('Data received:\n' + JSON.stringify(req.body))
   //   return res.redirect('/home'); 
   // })
+
+  app.get('/logout', function(req, res){
+    User = '';
+    res.redirect('/');
+  })
   
   app.use(function(req, res){
     res.status(404);
