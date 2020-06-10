@@ -2,16 +2,8 @@ var express = require('express');
 var bodyParser = require("body-parser");
 var app = express();
 const path = require('path');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const cookieParser = require("cookie-parser");
-const MongoDBStore = require('connect-mongodb-session')(session);
 const MongoClient = require('mongodb').MongoClient;
 const url = "mongodb+srv://admin:admin8616@cluster0-okijj.gcp.mongodb.net/test?retryWrites=true&w=majority";
-// const store = new MongoDBStore({
-//   uri: url,
-//   collection: 'users'
-// });
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
   console.log('Connected to Database');
